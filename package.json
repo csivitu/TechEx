@@ -1,0 +1,26 @@
+{
+  "name": "TechEx",
+  "version": "1.0.0",
+  "description": "[![csivit][csivitu-shield]][csivitu-url] [![Issues][issues-shield]][issues-url]",
+  "main": "app-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pran-Ker/TechEx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pran-Ker/TechEx/issues"
+  },
+  "homepage": "https://github.com/Pran-Ker/TechEx#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "isomorphic-fetch": "^3.0.0"
+  }
+}
