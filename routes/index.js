@@ -1,6 +1,7 @@
 // contact.js
-import axios from 'axios'
-import async from 'async'
+var async = require('async')
+var axios = require('axios')
+require('dotenv').config();
 module.exports = (app, config, bucket, partials, _) => {
   app.get('/contact', async (req, res) => {
     try {
@@ -60,8 +61,7 @@ module.exports = (app, config, bucket, partials, _) => {
           }
         ]
       }
-
-      const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
+      const recaptcha = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
       if (body.success !== undefined && !body.success) {
         res.send({ success: false, status: 'Failed-captcha-verification' });
         return;

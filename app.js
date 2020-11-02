@@ -6,10 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
-const signup = require('./routes/signupRoute');
-const login = require('./routes/loginRoute');
-const logout = require('./routes/logout');
-const verify = require('./routes/verification');
+const signup = require('./routes/index');
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -17,7 +14,6 @@ const port = process.env.PORT || 8080;
 
 // app.use(cookieParser());
 
-app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 app.use('/static', express.static(`${__dirname}/static`));
 app.use(session({ secret: process.env.SESSION_SECRET || 'sessionSecretKey', saveUninitialized: true, resave: true }));
