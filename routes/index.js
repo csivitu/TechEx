@@ -16,6 +16,8 @@ module.exports = (app, config, bucket, partials, _) => {
       return res.status(500).send({ "status": "error", "message": "Yikes, something went wrong!" })
     }
   })
+
+
   // Submit form
   app.post('/contact', async (req, res) => {
     var data = req.body
@@ -58,6 +60,14 @@ module.exports = (app, config, bucket, partials, _) => {
           }
         ]
       }
+
+      const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret_key}&response=${token}`;
+      if (body.success !== undefined && !body.success) {
+        res.send({ success: false, status: 'Failed-captcha-verification' });
+        return;
+      }
+    
+
       const new_object_response = await bucket.addObject(new_object)
       return res.json({ status: 'success', data: new_object_response })
     } catch(error) {

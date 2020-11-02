@@ -1,7 +1,6 @@
-/* eslint-disable linebreak-style */
 const mongoose = require('mongoose');
 
-mongoose.connect(`${process.env.DB_URL}/bigbraintime`, {
+mongoose.connect(`${process.env.DB_URL}/techexmex`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -15,4 +14,4 @@ mongoose.connect(`${process.env.DB_URL}/bigbraintime`, {
   }
 });
 
-// || 'mongodb://localhost:27017/bigbraintime'
+// || 'mongodb://localhost:27017/techexmex'
