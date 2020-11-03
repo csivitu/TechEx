@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
-const signup = require('./routes/index');
+const signup = require('./routes/signupRoute');
 const app = express();
 const port = process.env.PORT || 8080;
 

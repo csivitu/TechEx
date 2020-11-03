@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`${process.env.DB_URL}/techexmex`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-}, (err) => {
+const URI ="mongodb+srv://csivit:csivit@studentinfo.krlef.mongodb.net/test?retryWrites=true&w=majority";
+
+const connectDB = async () => {
+  await mongoose.connect(URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+},
+  (err) => {
   if (!err) {
     // eslint-disable-next-line no-console
     console.log('Connected to DB successfully');
@@ -12,6 +15,9 @@ mongoose.connect(`${process.env.DB_URL}/techexmex`, {
     // eslint-disable-next-line no-console
     console.log(`Error in DB connection ${err}`);
   }
-});
+})
+};
 
-// || 'mongodb://localhost:27017/techexmex'
+module.exports = connectDB;
+
+

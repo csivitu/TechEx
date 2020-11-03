@@ -10,8 +10,8 @@
         </div>
         <div class="col-sm-6 pt-40">
           <form id="contact_form">
-            <script src="https://www.google.com/recaptcha/api.js?render=6LdJJN4ZAAAAABZRw5W6x9S2JzMcmN_XvBR0Czk3"></script>   # Add the site key
-            # ___________ Begin
+            <script src="https://www.google.com/recaptcha/api.js?render=6LdJJN4ZAAAAABZRw5W6x9S2JzMcmN_XvBR0Czk3"></script>  
+           
             
             <script>
               function showResult(text) {
@@ -47,9 +47,7 @@
                       });
               });
             </script>
-
-
-            #_____________ End            
+            
             <div class="form-group form-group--name">
               <label>Name</label>
               <input name="full_name" type="text" class="form-control input-lg" placeholder="Enter your full name">
@@ -62,9 +60,13 @@
               <label>Phone (Optional)</label>
               <input name="phone" type="text" class="form-control input-lg phone-mask" placeholder="Enter your phone number">
             </div>
-            <div class="form-group form-group--message">
-              <label>Message</label>
-              <textarea name="message" style="height: 150px" class="form-control input-lg" placeholder="Enter a message"></textarea>
+            <div class="form-group form-group--password">
+              <label>Password</label>
+              <input name="password" type="password" class="form-control input-lg" placeholder="Enter your password">
+            </div>
+            <div class="form-group form-group--password">
+              <label>Confirm Password</label>
+              <input name="password" type="password" class="form-control input-lg" placeholder="Retype your password">
             </div>
             <div class="alert alert-success success-message hidden">
               {{ page.metadata.contact_form_success_message }}
