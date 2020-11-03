@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-  res.render('endevent');
+  res.render('./routes/signupRoute');
 });
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
