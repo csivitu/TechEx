@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body onload=loaded()>
+        <div id="loader"><img src="../static/img/loading.gif" alt="Loading..." class="loading-gif"></div>
+        <a href="https://csivit.com/"><img src="../static/img/CSIDark(saturated).png" alt="CSI LOGO" class="csilogo" /></a>
+        <div class="container">
+        <div class="header">
+            <img src="../static/img/title.png" alt="LOGO" class="logo" />
+            <h2 class="description">TechEx</h2>
+        </div>
+        <div class="containerlev2">
+            <form class="signup form" id="signup-form">
+            <h1 class="heading"></h1>
+            <div class="form__group form__group--username">
+                <label for="username" class="form__label">Name:</label>
+                <input
+                type="text"
+                class="form__input"
+                id="username"
+                placeholder="username123"
+                required
+                />
+            </div>
+            <div class="form__group form__group--email">
+                <label for="topic" class="form__label">Email:</label>
+                <input
+                type="email"
+                class="form__input"
+                id="email"
+                placeholder="username123@xyz.com"
+                required
+                />
+            </div>
+            <div class="form__group form__group--password">
+                <label for="password" class="form__label">Phone:</label>
+                <input
+                type="phone"
+                class="form__input"
+                id="phone"
+                placeholder="123"
+                required
+                />
+            </div>
+            <div class="form__group form__group--password">
+                <label for="password" class="form__label">Password:</label>
+                <input
+                type="password"
+                class="form__input"
+                id="password"
+                placeholder="password123"
+                required
+                />
+            </div>
+            <div class="form__group form__group--cpassword">
+                <label for="c-password" class="form__label">Verify Password:</label>
+                <input
+                type="password"
+                class="form__input"
+                placeholder="password123"
+                id="c-password"
+                />
+            </div>
+            
+            <div class="form__group captcha">
+                <div class="g-recaptcha" data-callback="onSubmit" data-sitekey="6LdJJN4ZAAAAABZRw5W6x9S2JzMcmN_XvBR0Czk3" data-size="invisible"></div>
+            </div>
+            </form>
+        </div>
+
+        <button type="submit" form="signup-form" class="btn-submit">SIGN UP</button>
+        <!-- <p class="bottom-line">Already have an account ? </p>
+                <p class="bottom-line"><a class="btn-redirect">Log in</a>  now</p> -->
+        
+       
+        <script>
+        if(document.getElementById("loader")) document.querySelector(".container").style.display = 'none';
+        function loaded() {
+            document.getElementById("loader").style.display = "none";
+            document.querySelector(".container").style.display = "flex";
+        }
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script src="/static/js/signup.js"></script>
+    </body>
+</html>
