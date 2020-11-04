@@ -4,7 +4,6 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "pm2 reload --update-env app.js || pm2 start app.js --name bbt-dev",
     "test": "echo \"Successful test\"",
     "dev": "nodemon app.js",
     "lint": "eslint \"**/*.js\" --fix",

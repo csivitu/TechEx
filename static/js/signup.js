@@ -3,13 +3,14 @@
 // import axios from "axios";
 // import { showAlert, hideAlert } from "./alert";
 
-const signupAjax = async (username, email, password, captcha) => {
+const signupAjax = async (username, email,phone, password, captcha) => {
     const res = await axios({
         method: "POST",
         url: "/signup",
         data: {
         username,
         email,
+        phone,
         password,
         captcha
         },
@@ -31,17 +32,14 @@ const signupAjax = async (username, email, password, captcha) => {
         document.querySelector(".btn-submit").disabled = false;
     } else if (res.data.status === 'success') {
         showAlert('success', 'Signup Successfull. Verification Mail Sent. Verify to continue');
-        window.setTimeout(() => {
-            location.assign('/login');
-        }, 1500);
     }
 };
 
 var onSubmit = (token) => {
     const name = document.getElementById("username").value;
     const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
     const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
     signupAjax(name, email, password,phone , token);
 }
 
