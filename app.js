@@ -4,13 +4,10 @@ require('./models/dbInit');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const signup = require('./routes/signupRoute');
+const signup = require('./routes/signupRoute.js');
 
 const app = express();
 const port = process.env.PORT || 8080;
-
-
-// app.use(cookieParser());
 
 
 app.set('view engine', 'ejs');

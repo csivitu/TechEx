@@ -1,89 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-    <body onload=loaded()>
-        <div id="loader"><img src="../static/img/loading.gif" alt="Loading..." class="loading-gif"></div>
-        <a href="https://csivit.com/"><img src="../static/img/CSIDark(saturated).png" alt="CSI LOGO" class="csilogo" /></a>
-        <div class="container">
-        <div class="header">
-            <img src="../static/img/title.png" alt="LOGO" class="logo" />
-            <h2 class="description">TechEx</h2>
-        </div>
-        <div class="containerlev2">
-            <form class="signup form" id="signup-form">
-            <h1 class="heading"></h1>
-            <div class="form__group form__group--username">
-                <label for="username" class="form__label">Name:</label>
-                <input
-                type="text"
-                class="form__input"
-                id="username"
-                placeholder="username123"
-                required
-                />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css" 
+            integrity="sha512-8M8By+q+SldLyFJbybaHoAPD6g07xyOcscIOQEypDzBS+sTde5d6mlK2ANIZPnSyxZUqJfCNuaIvjBUi8/RS0w==" c
+            rossorigin="anonymous" />
+    <link rel="stylesheet" href="../static/index.css"/>
+    
+    <title>TechEx 2020</title>
+</head>
+<body>
+    <div id="fullpage">
+        
+        <div class="section sec1" id="page1">
+            <div style="position: relative; top:30%;" id="logo">
+                <img src="../static/img/techexlogo.png" alt="TechEx"  id="logosvg">
+                <p id="logoTag"><b>An introduction to everthing!</b></p>
             </div>
-            <div class="form__group form__group--email">
-                <label for="topic" class="form__label">Email:</label>
-                <input
-                type="email"
-                class="form__input"
-                id="email"
-                placeholder="username123@xyz.com"
-                required
-                />
-            </div>
-            <div class="form__group form__group--password">
-                <label for="password" class="form__label">Phone:</label>
-                <input
-                type="phone"
-                class="form__input"
-                id="phone"
-                placeholder="123"
-                required
-                />
-            </div>
-            <div class="form__group form__group--password">
-                <label for="password" class="form__label">Password:</label>
-                <input
-                type="password"
-                class="form__input"
-                id="password"
-                placeholder="password123"
-                required
-                />
-            </div>
-            <div class="form__group form__group--cpassword">
-                <label for="c-password" class="form__label">Verify Password:</label>
-                <input
-                type="password"
-                class="form__input"
-                placeholder="password123"
-                id="c-password"
-                />
-            </div>
-            
-            <div class="form__group captcha">
-                <div class="g-recaptcha" data-callback="onSubmit" data-sitekey="6LdJJN4ZAAAAABZRw5W6x9S2JzMcmN_XvBR0Czk3" data-size="invisible"></div>
-            </div>
-            </form>
+            <p id="scroll">Scroll Down</br><i class="fas fa-chevron-circle-down"></i>
+            </p>
         </div>
 
-        <button type="submit" form="signup-form" class="btn-submit">SIGN UP</button>
-        <!-- <p class="bottom-line">Already have an account ? </p>
-                <p class="bottom-line"><a class="btn-redirect">Log in</a>  now</p> -->
-        
-       
-        <script>
-        if(document.getElementById("loader")) document.querySelector(".container").style.display = 'none';
-        function loaded() {
-            document.getElementById("loader").style.display = "none";
-            document.querySelector(".container").style.display = "flex";
-        }
-        </script>
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <script src="/static/js/signup.js"></script>
-    </body>
+        <!----WHAT IS TECHEX -->
+        <div class="section" id="page2">
+            <div class="bg sec2" ></div>
+            <div class="sectionContainer" id="s2">
+                <div>
+                <h1><b>What is <span style="color: white;">TechEx</span></b></h1>
+                <p id="sec1content">
+                    Chatbots- Join us and learn the art of making amazing responsive chatbots from scratch at this 
+                    introductory technical event.
+                   </br></br>
+                    Pygame- Build games with Python, one of the most popular programming languages in the world!  
+                </p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- INTRO TO PyGame -->
+        <div class="section" id="page3">
+            <div class="bg sec3">
+            </div>
+            <div class="sectionContainer" id="s3">
+                <div>
+                <h1><b>Intro to <span style="color: white;">PyGame</span></b></h1>
+                <p id="sec1content">
+                    Figma- One of the most accessible design softwares out there, 
+                    learn how to make quick and fun designs in just a few hours!¸
+                 </p>
+                 
+                </div>
+                
+            </div>
+            <img src="../static/img/controllerAsset.svg" " id="controllerImg">
+        </div>
+
+
+        <!-- INTRO TO APP -->
+        <div class="section" id="page4">
+            <div class="bg sec4"></div>
+            <div class="sectionContainer" id="s4">
+                <div>
+                    <h1><b>Intro to <span style="color: white;">UI/UX</span></b></h1>
+                    <p>
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                     Quisque sodales nisl eu elementum placerat. Nulla tincidunt eros vehicula porta porttitor. 
+                     Vivamus hendrerit ante nunc, quis porttitor velit convallis vitae. 
+                     Sed mauris magna, ullamcorper in nisi aliquam, ornare ullamcorper justo. 
+                     Suspendisse diam leo, accumsan varius fermentum eget, egestas eu enim. 
+                     Integer fermentum eros massa, et varius sem venenatis quis. Ut vitae facilisis augue. 
+                     Nulla non ipsum at lorem rutrum mattis. Donec tempor, nulla sit amet feugiat pulvinar, ex dui vulputate diam, a luctus est enim in odio. 
+                     Quisque dapibus tortor libero, vel gravida nunc blandit sed.
+                     </p>
+                </div>
+            </div>
+            <img src="../static/img/phoneAsset.svg"  id="phoneImg">
+         </div>
+         <!-- REGISTRATION FORM AND STUFF -->
+         <div class="section sec5" id="register" style="background-color: #f58c57;">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                    <div class="numbertext">1 / 10</div>
+                    <img src="../static/img/slideshow/img1.JPG" style="width:100%">
+                    <div class="text"><span style="background-color: black;">Here's some glimpse of TechEx 2019</span></div>
+                    </div>
+                    
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 10</div>
+                        <img src="../static/img/slideshow/img2.jpg" style="width:55%">
+                    </div>
+                    
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 10</div>
+                        <img src="../static/img/slideshow/img3.jpg" style="width:100%">
+                        <div class="text"><span style="background-color: black; 
+                            padding: 0 2px;">TechEx workshop on Video Editing by Rishab Mandhana</span></div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 10</div>
+                        <img src="../static/img/slideshow/img4.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 10</div>
+                        <img src="../static/img/slideshow/img5.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">6 / 10</div>
+                        <img src="../static/img/slideshow/img6.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">7 / 10</div>
+                        <img src="../static/img/slideshow/img7.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">8 / 10</div>
+                        <img src="../static/img/slideshow/img8.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">9 / 10</div>
+                        <img src="../static/img/slideshow/img9.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">10 / 10</div>
+                        <img src="../static/img/slideshow/img5.jpg" style="width:100%">
+                        <div class="text">Caption Three</div>
+                    </div>
+                </div>
+                    <!--<div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                    <span class="dot" onclick="currentSlide(4)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(7)"></span> 
+                    <span class="dot" onclick="currentSlide(8)"></span> 
+                    <span class="dot" onclick="currentSlide(9)"></span> 
+                    <span class="dot" onclick="currentSlide(10)"></span> 
+                </div>-->
+                <div id="registerForm">
+                    <h1><b>Interested? Let's get you registered!</b></h1>
+                    <form method="POST" action="">
+                        <input type="text" name="name" placeholder="Enter you name"/>
+                        <input type="email" name="email" placeholder="Email ID"/>
+                        <input type="tel" name="mobile" pattern="[0-9]{10}" placeholder="Mobile Number"/>
+                        <input type="password" name="password" placeholder="Enter password"/>
+                        <input type="password" name="confirmedPassword" placeholder="Re-enter your password"/>
+                        </br>
+                        <input type="submit" value="Register!">
+                    </form>
+                </div>
+                <div id="aboutCSI">
+                    <p style="width: 80%; text-align: justify; max-width: 40%;">
+                        The Computer Society of India is the largest body of non-profit computer professionals
+                        in India. We are a group of skilled desginers, developers, and tech enthusiasts who 
+                        engage in pushing technology forward. We organise a wide range of workshops, conferences,
+                        competitions and non-technical events to facilitate the growth of participants. 
+                    </p>
+                    <p style="color: white;">Visit out website <a href="https://csivit.com/">csivit.com</a>
+                        to see more of who we are and what work we do.
+                    </p>
+                </div>
+        </div>
+    </div>
+    <ul class="navbar-nav" id="menu">
+        <li data-menuanchor="firstpage" class="active"><a class="nav-link" href="#firstpage">Home</a></li>
+        <li data-menuanchor="secondpage"><a class="nav-link" href="#secondpage">About</a></li>
+        <li data-menuanchor="thirdpage"><a class="nav-link" href="#thirdpage">Events</a></li>
+        <li data-menuanchor="fifthpage"><a class="nav-link" href="#fifthpage">Register</a></li>
+    </ul>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js" 
+                integrity="sha512-Gx/C4x1qubng2MWpJIxTPuWch9O88dhFFfpIl3WlqH0jPHtCiNdYsmJBFX0q5gIzFHmwkPzzYTlZC/Q7zgbwCw==" 
+                crossorigin="anonymous"></script>
+    <script
+    src="https://kit.fontawesome.com/fc31dedf63.js"
+    crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" 
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" 
+        crossorigin="anonymous"></script>
+    <script src="../static/js/App.js"></script>
+</body>
 </html>

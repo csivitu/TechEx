@@ -16,7 +16,7 @@ signup.get('/', (req, res) => {
 });
 
 signup.post('/', async (req, res) => {
-  if (!req.body.captcha) {
+/*  if (!req.body.captcha) {
     res.send({ success: false, status: 'captcha-not-done' });
     return;
   }
@@ -49,7 +49,7 @@ signup.post('/', async (req, res) => {
   if (req.body.phone.length !== 10) {
     res.redirect('/signup');
     return;
-  }
+  } */
 
   const newUser = new User({
     email: req.body.email,
