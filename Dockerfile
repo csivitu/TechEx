@@ -1,6 +1,17 @@
-FROM node:latest
-WORKDIR app
+FROM node:lts-alpine
+
+# Working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json ./
+RUN npm ci --silent
+
+# Copy source
 COPY . .
-RUN npm install
+
+# Port
 EXPOSE 8080
-CMD [ "node", "app.js" ]
+
+# Start server
+CMD ["npm", "start"]

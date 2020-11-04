@@ -8,10 +8,10 @@ verify.get('/', (req, res) => {
       console.log(err);
       return;
     }
-    const user = await user.findOne({ _id: decoded._id });
-    user.verified = true;
+    const participant = await user.findOne({ _id: decoded.id });
+    participant.verified = true;
     try {
-      user.save();
+      participant.save();
     } catch (e) {
       console.log(`Error occured: ${e}`);
     }

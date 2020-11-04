@@ -1,9 +1,13 @@
+// var sendEmails, ('./actions/sendMails');
+
 const signup = require('express').Router();
 const jwt = require('jsonwebtoken');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
-const user = require('../models/User');
+const User = require('../models/User');
 const { hashPassword } = require('./actions/hash');
+// const sendEmails = require('./actions/sendMails');
+
 
 const JWT_SECRET = '';
 
@@ -23,7 +27,7 @@ signup.post('/', async (req, res) => {
     remoteip: req.connection.remoteAddress,
   });
 
-  const verifyURL = `https://google.com/recaptcha/api/siteverify?6LdJJN4ZAAAAAIxeRHaup4mZiBBMKgQ3gOC0FPo_`;
+  const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
   const body = await fetch(verifyURL).then((response) => response.json());
 
   if (body.success !== undefined && !body.success) {
@@ -36,39 +40,20 @@ signup.post('/', async (req, res) => {
     return;
   }
 
-  if (req.body.email.length > 150 || req.body.password.length > 150 || req.body.username.length > 150) {
+  if (req.body.email.length > 150 || req.body.password.length > 150
+    || req.body.username.length > 150) {
     res.redirect('/signup');
     return;
   }
 
-  if (req.body.phone.length != 10) {
+  if (req.body.phone.length !== 10) {
     res.redirect('/signup');
     return;
   }
 
-  const users = await user.findOne({ $or: [{ email: req.body.email }, { username: req.body.username }] });
-  if (users) {
-    // console.log(users);
-
-    if (users.email === req.body.email) {
-      if (!users.verified && ((Date.now() - users.timestamp) >= 10800000)) {
-        user.remove({ email: req.body.email });
-      } else {
-        res.send({ status: 'email_exist' });
-        return;
-      }
-    }
-  }
-  if (users) {
-    if (users.username === req.body.username) {
-      res.send({ status: 'username_exist' });
-      return;
-    }
-  }
-
-  const newUser = new user({
+  const newUser = new User({
     email: req.body.email,
-    username: req.body.username,
+    name: req.body.name,
     phone: req.body.phone,
     password: await hashPassword(req.body.password),
     timestamp: Date.now(),
@@ -80,10 +65,11 @@ signup.post('/', async (req, res) => {
   } catch (e) {
     console.log(`Error occured: ${e}`);
   }
-  const verificationToken = jwt.sign({ _id: student._id }, process.env.JWT_SECRET || JWT_SECRET);
+
+  const verificationToken = jwt.sign({ _id: student.id }, process.env.JWT_SECRET || JWT_SECRET);
   const link = process.env.VERIFICATION_LINK + verificationToken || `http://localhost:3000/verify?token=${student.verificationToken}`;
 
-  if (process.env.MODE === 'PRODUCTION') {
+/*  if (process.env.MODE === 'PRODUCTION') {
     sendEmails(req.body.email, link, 'verify', (err) => {
       if (err) {
         console.error(`Error: ${err}`);
@@ -93,6 +79,8 @@ signup.post('/', async (req, res) => {
     });
   }
   res.send({ status: 'success' });
+  */
 });
+
 
 module.exports = signup;
