@@ -3,12 +3,12 @@
 // import axios from "axios";
 // import { showAlert, hideAlert } from "./alert";
 
-const signupAjax = async (username, email,phone, password, captcha) => {
+const signupAjax = async (name, email,phone, password, captcha) => {
     const res = await axios({
         method: "POST",
         url: "/signup",
         data: {
-        username,
+        name,
         email,
         phone,
         password,
@@ -27,8 +27,8 @@ const signupAjax = async (username, email,phone, password, captcha) => {
     } else if (res.data.status === "email_exist") {
         showAlert("error", "Email already exists!");
         document.querySelector(".btn-submit").disabled = false;
-    } else if (res.data.status === "username_exist") {
-        showAlert("error", "Username already taken!");
+    } else if (res.data.status === "name_exist") {
+        showAlert("error", "name already taken!");
         document.querySelector(".btn-submit").disabled = false;
     } else if (res.data.status === 'success') {
         showAlert('success', 'Signup Successfull. Verification Mail Sent. Verify to continue');
@@ -36,7 +36,7 @@ const signupAjax = async (username, email,phone, password, captcha) => {
 };
 
 var onSubmit = (token) => {
-    const name = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
@@ -73,7 +73,7 @@ const checkLength = (input, min, max) => {
 
 document.getElementById("signup-form").addEventListener('submit', (e) => {
     e.preventDefault();
-    if( checkLength(document.getElementById("username"), 3, 50) &&
+    if( checkLength(document.getElementById("name"), 3, 50) &&
         // checkEmail(document.getElementById('email')) &&
         checkLength(document.getElementById('password'), 6, 50) &&
         checkFieldMatch(document.getElementById("c-password"), document.getElementById('password')) )  {
