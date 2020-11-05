@@ -5,7 +5,9 @@ body{
     margin: 0;
     padding: 0;
     font-family: Helvetica;
+    font-size: 20px;
 }
+
 #menu{
     position: fixed;
     display: flex;
@@ -15,6 +17,12 @@ body{
     justify-content: space-around;
     background-color: transparent;
     justify-items: space-around;
+}
+#last{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: space-around;
 }
 #logo{
     display: flex;
@@ -27,6 +35,9 @@ body{
 #logosvg{
     max-height: 25vh;   
 }
+#logoTag{
+    font-size: 1rem;
+}
 .section{
     position: relative;
     margin-bottom: 30px;
@@ -35,8 +46,8 @@ body{
 }
 .bg{
     background-color: #f58c57;
-    width: 2132px;
-    height: 70%;
+    width: 100%;
+    height: 75%;
     top: 15%;
     margin-left: auto;
     margin-right: auto;
@@ -44,8 +55,14 @@ body{
     padding-left: 185px;
     margin-right: -106px;
     padding-right: 185px;
-    min-height: 600px;
     position: absolute;
+}
+
+#s3.sectionContainer{
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-self: left;
+    vertical-align: left;
 }
 .sectionContainer{
     z-index: 1;
@@ -54,12 +71,12 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+  
     max-width: 1260px ;
     width: 90%;
     padding: 0px;
     max-height: 500px;
-    font-size: 120%;
+    font-size: 1rem;
     left: 10px;
     right: 20px;
     position: absolute;
@@ -79,20 +96,23 @@ body{
     justify-content: flex-end;
 }
 
+
 .sectionContainer>div>p{
     max-width: 600px;
 }
+
 #aboutCSI{
-    position: absolute;
-    bottom: 5%;
+    padding: 10%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    font-size: 0.9rem;
 }
 
 #sec1content{
-    max-width: 700px;
+    max-width: 50%px;
+    font-size: 1.3rem;
 }
 li{
     list-style: none;
@@ -102,6 +122,7 @@ li{
     font-weight: bold;
     margin-left: 10px;
 }
+
 #page1{
    z-index: 1;
    background-image: url(./img/bg.jpeg);
@@ -112,25 +133,14 @@ li{
 }
 #scroll{
     position: absolute; 
+    font-size: 0.7rem;
     left: 45%;
     bottom: 10%;
     opacity: 0;
 }
-/* #s2{
-    top: 50%;
-    right: 50%;
-} */
-/* #s3{
-    top: 20%;
-    left: 50px;
-} */
 .navbar-brand{
     color: #f58c57;
 }
-/* #s4{
-    top: 20%;
-    left: 30%;
-} */
 
 a{
     text-decoration: none;
@@ -141,6 +151,7 @@ a:hover{
 }
 #phoneImg{
 position: absolute;
+top:10vh;
 left :20vw;
 height: 90%;
 width: auto;
@@ -148,6 +159,7 @@ width: auto;
 
 #controllerImg{ 
 /* padding-left: 200px; */
+top:10vh;
 position: absolute;
 left :50vw;
 height: 90%;
@@ -157,109 +169,65 @@ width: auto;
 input[type=email], input[type=text],input[type=password],input[type=tel]{
     border: none;
     width: 50%;
-    border-bottom: 2px solid #7e7e7e;
+    border-bottom: 2px solid white;
     color: white;
     background-color: transparent;
 }
+::selection { background: black; }
 input{
     padding: 10px;
     margin: 10px;
 }
 input[type=submit]{
-    border-radius: 4px;
-    border: 0;
+    font-weight: bolder;
+    border:none;
     text-decoration: none;
-    color: white;
-    background-color: black;
+    color: #f58c57;
+    background-color: white;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder { 
     color: white;
-    opacity: 1; /* Firefox */
+    opacity: 1;
   }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder { 
     color: white;
 }
   
-::-ms-input-placeholder { /* Microsoft Edge */
+::-ms-input-placeholder { 
     color:white;
 }
 
-
-
-
-
-#registerForm{
-    position: absolute;
-    left: 50%;
-    top: 5%;
+.last{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1260px;
+    margin: 0 auto;
+    margin-bottom: 10%;
 }
+
 form{
     grid-column: span;
 }
-@media screen and (max-width: 1024px){
-    #logosvg{
-        width: 30%;
-    }
-    #page1{
-        background-image: none;
-    }
-    #scroll{
-        font-size: 1em;
-    }
-    #logo{
-        width: 100%;
-    }
+#PygameP{
+    width: 30%;
+    min-width: 40%;
 }
-@media screen and (max-width: 768px){
-    #logo{
-        width: 100%;
-    }
-    #page1{
-        background-image: none;
-    }
-    #scroll{
-        font-size: 0.3em;
-    }
-}
-@media screen and (max-width: 540px){
-    #page1{
-        background-image: none;
-    }
-    #logosvg{
-        width: 60%;
-    }
-    #scroll{
-        left: 38%;
-        font-size: 1em;
-    }
-    #controllerImg{
-        left: -30vw;
-    }
-    .sectionContainer{
-        justify-content: flex-start;
-        font-size: 0.8em;
-        width: 95%;
-        left: 0;
-        padding: 12px;
-    }
-    #aboutCSI{
-        flex-direction: column;
-    }
-    input[type=email], input[type=text],input[type=password],input[type=tel]{
-        width: 85%;
-    }
-}
-
-/*For the slideshow*/
+/* For the slideshow*/ 
 .slideshow-container {
-    width: 40%;
-    position: absolute;
-    top: 8%;
-    left: 30px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    margin: 0 30px;
+    background-color: rgba(255,255,255,1);
+    margin-bottom: 5vh;
+  } 
+.slideshow-container>div>img {
+    max-height: 600px;
+    width: auto;
+    height: 100%;
   }
-  
   /* Hide the images by default */
   .mySlides {
     display: none;
@@ -295,12 +263,6 @@ form{
   /* Caption text */
   .text {
     color: white;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 95%;
-    text-align: center;
   }
   
   /* Number text (1/3 etc) */
@@ -345,3 +307,115 @@ form{
     from {opacity: .4}
     to {opacity: 1}
   }
+
+
+  .aboutAndReg{
+      display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: space-around;
+  }
+
+
+
+  @media screen and (max-width: 1024px){
+    #logosvg{
+        width: 30%;
+    }
+    #page1{
+        background-image: none;
+    }
+    #scroll{
+        font-size: 1rem;
+    }
+    #logo{
+        width: 100%;
+    }
+    .aboutAndReg{
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+        margin:5vw;
+    }
+
+    .slideshow-container {
+        display: flex;
+        justify-content: center;
+        height: 300px;
+        background-color: rgba(255,255,255,1);
+        margin-bottom: 5vh;
+      }
+    .slideshow-container>div>img {
+        max-height: 300px;
+        width: auto;
+        height: 100%;
+        
+      }
+
+     .aboutCSI{
+        width: 90vw;
+      }
+     .aboutCSI:first-child{
+         font-size: medium;
+         text-align: center;
+     }
+     #aboutCSI{
+        margin-top: 23%;
+        font-size: 0.7rem;
+    }
+}
+@media screen and (max-width: 768px){
+    body{
+        font-size: 18px;
+    }
+    #logo{
+        width: 100%;
+    }
+    #logosvg{
+        width: 40%;
+        height: 20%;
+    }
+    #PygameP{
+        width: 100%;
+    }
+    #page1{
+        background-image: none;
+    }
+    #scroll{
+        font-size: 0.6rem;
+    }
+    input[type=email], input[type=text],input[type=password],input[type=tel]{
+        width: auto;
+    }
+}
+@media screen and (max-width: 540px){
+    body{
+        font-size: 16px;
+    }
+    #page1{
+        background-image: none;
+    }
+    #logosvg{
+        width: 60%;
+    }
+    #scroll{
+        left: 41%;
+    }
+    #controllerImg{
+        left: -30vw;
+    }
+    .sectionContainer{
+        justify-content: flex-start;
+        font-size: 0.8em;
+        width: 95%;
+        left: 0;
+        padding: 12px;
+    }
+    #aboutCSI{
+        flex-direction: column;
+    }
+    input[type=email], input[type=text],input[type=password],input[type=tel]{
+        width: 85%;
+    }
+}

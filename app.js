@@ -13,7 +13,10 @@ const port = process.env.PORT || 8080;
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'));
 app.use('/static', express.static(`${__dirname}/static`));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 app.use('/signup', signup);
 
 
