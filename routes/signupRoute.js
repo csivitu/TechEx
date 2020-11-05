@@ -1,8 +1,6 @@
-// var sendEmails, ('./actions/sendMails');
 
 const signup = require('express').Router();
 const jwt = require('jsonwebtoken');
-const fetch = require('node-fetch');
 const { stringify } = require('querystring');
 const User = require('../models/User');
 const { hashPassword } = require('./actions/hash');
@@ -12,11 +10,11 @@ const { hashPassword } = require('./actions/hash');
 const JWT_SECRET = '';
 
 signup.get('/', (req, res) => {
-  res.render('../static/js/signup.js');
+  res.render('signup');
 });
 
 signup.post('/', async (req, res) => {
-  if (!req.body.captcha) {
+  /* if (!req.body.captcha) {
     res.send({ success: false, status: 'captcha-not-done' });
     return;
   }
@@ -34,22 +32,24 @@ signup.post('/', async (req, res) => {
     res.send({ success: false, status: 'Failed-captcha-verification' });
     return;
   }
+*/
 
+  console.log('1');
+  console.log(req.body);
   if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
     res.redirect('/signup');
     return;
   }
 
+  
   if (req.body.email.length > 150 || req.body.password.length > 150
-    || req.body.username.length > 150) {
+    || req.body.name.length > 150) {
     res.redirect('/signup');
     return;
   }
+  
 
-  if (req.body.phone.length !== 10) {
-    res.redirect('/signup');
-    return;
-  }
+  console.log('2');
 
   const newUser = new User({
     email: req.body.email,
@@ -61,11 +61,13 @@ signup.post('/', async (req, res) => {
   });
   let student;
   try {
+    console.log('3');
     student = await newUser.save();
   } catch (e) {
     console.log(`Error occured: ${e}`);
+    return;
   }
-
+  res.send({ status: 'success' });
   const verificationToken = jwt.sign({ _id: student.id }, process.env.JWT_SECRET || JWT_SECRET);
   const link = process.env.VERIFICATION_LINK + verificationToken || `http://localhost:3000/verify?token=${student.verificationToken}`;
 
