@@ -1,55 +1,58 @@
-/* eslint-disable*/
-
-// import axios from "axios";
-// import { showAlert, hideAlert } from "./alert";
-
-const signupAjax = async (username, email,phone, password, captcha) => {
+const signupAjax = async (name, email,phone, password, reenteredPassword,captcha) => {
     const res = await axios({
         method: "POST",
         url: "/signup",
         data: {
-        username,
+        name,
         email,
         phone,
         password,
+        reenteredPassword,
         captcha
         },
     });
 
     if (res.data.status === "captcha-not-done") {
         showAlert("error", "Captcha not done!!");
-        document.querySelector(".btn-submit").disabled = false;
+        document.querySelector("input[type=submit]").disabled = false;
         grecaptcha.reset();
     } else if (res.data.status === "Failed-captcha-verification") {
         showAlert("error", "Captcha verification failed!! Try again");
-        document.querySelector(".btn-submit").disabled = false;
+        document.querySelector("input[type=submit]").disabled = false;
         grecaptcha.reset();
     } else if (res.data.status === "email_exist") {
         showAlert("error", "Email already exists!");
-        document.querySelector(".btn-submit").disabled = false;
-    } else if (res.data.status === "username_exist") {
-        showAlert("error", "Username already taken!");
-        document.querySelector(".btn-submit").disabled = false;
+        document.querySelector("input[type=submit]").disabled = false;
+    } else if (res.data.status === "name_exist") {
+        showAlert("error", "name already taken!");
+        document.querySelector("input[type=submit]").disabled = false;
     } else if (res.data.status === 'success') {
         showAlert('success', 'Signup Successfull. Verification Mail Sent. Verify to continue');
     }
 };
-
+function showAlert(type,message){
+    if(type==='sucess')
+        document.getElementById("spitErrors").style.color="lightgreen";  
+    else if(type==="error")
+        document.getElementById("spitErrors").style.color="red"; 
+    document.getElementById("spitErrors").innerHTML= message;
+}
 var onSubmit = (token) => {
-    const name = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
     const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    const phone = document.getElementById('mobile').value;
     const password = document.getElementById('password').value;
-    signupAjax(name, email, password,phone , token);
+    const reenteredPassword = document.getElementById("rePassword").value;
+    signupAjax(name, email, password,reenteredPassword,phone ,token);
 }
 
-
-// const checkEmail = (input) => {
-//     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     if (!re.test(String(input.value).toLowerCase())) {
-//         showAlert("error", "Enter a valid email");
-//     } else return true;
-// };
+/*
+const checkEmail = (input) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(input.value).toLowerCase())) {
+        showAlert("error", "Enter a valid email");
+    } else return true;
+};*/
 
 const checkFieldMatch = (input1, input2) => {
     if (input1.value !== input2.value) {
@@ -71,13 +74,12 @@ const checkLength = (input, min, max) => {
 
 
 
-document.getElementById("signup-form").addEventListener('submit', (e) => {
+document.querySelector("form").addEventListener('submit', (e) => {
     e.preventDefault();
-    if( checkLength(document.getElementById("username"), 3, 50) &&
-        // checkEmail(document.getElementById('email')) &&
+    if(checkEmail(document.getElementById('email')) &&
         checkLength(document.getElementById('password'), 6, 50) &&
         checkFieldMatch(document.getElementById("c-password"), document.getElementById('password')) )  {
-            // document.querySelector(".btn-submit").disabled = true;
+            document.querySelector("input[type=submit]").disabled = true;
             grecaptcha.execute();
     }
-})
+});
