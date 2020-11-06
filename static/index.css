@@ -5,16 +5,25 @@ body{
     margin: 0;
     padding: 0;
     font-family: Helvetica;
-    font-size: 20px;
+    font-size: 24px;
 }
-
+button{
+    font-weight: bolder;
+    border:none;
+    font-size: 1rem;
+    padding: 10%;
+    text-decoration: none;
+    background-color: #f58c57;
+    color: black;
+}
 #menu{
     position: fixed;
     display: flex;
+    font-size: 0.9rem;
     top: 0;
     z-index: 999;
     min-height: 5vh;
-    justify-content: space-around;
+    justify-content: center;
     background-color: transparent;
     justify-items: space-around;
 }
@@ -37,6 +46,10 @@ body{
 }
 #logoTag{
     font-size: 1rem;
+    text-transform: uppercase;
+}
+.sectionContainer>div{
+    width: 80%;
 }
 .section{
     position: relative;
@@ -83,22 +96,22 @@ body{
     margin: auto;
 }
 .sectionContainer>div>h1{
-    font-size: 300%; 
+    font-size: 2.5rem; 
     padding: 0;
     margin: 0;
 }
-
+.dates{
+    color: white; 
+    margin-top: 9%;
+}
 .sectionContainer#s2{
     justify-content: flex-end;
 }
-
-.sectionContainer#s4{
-    justify-content: flex-end;
-}
-
-
 .sectionContainer>div>p{
     max-width: 600px;
+}
+.sectionContainer#s4{
+    justify-content: flex-end;
 }
 
 #aboutCSI{
@@ -111,8 +124,8 @@ body{
 }
 
 #sec1content{
-    max-width: 50%px;
-    font-size: 1.3rem;
+    max-width: 50%;
+    font-size: 1rem;
 }
 li{
     list-style: none;
@@ -133,10 +146,11 @@ li{
 }
 #scroll{
     position: absolute; 
-    font-size: 0.7rem;
-    left: 45%;
+    font-size: 1rem;
+    left: 42%;
     bottom: 10%;
     opacity: 0;
+    text-align: center;
 }
 .navbar-brand{
     color: #f58c57;
@@ -173,7 +187,6 @@ input[type=email], input[type=text],input[type=password],input[type=tel]{
     color: white;
     background-color: transparent;
 }
-::selection { background: black; }
 input{
     padding: 10px;
     margin: 10px;
@@ -206,7 +219,11 @@ input[type=submit]{
     margin: 0 auto;
     margin-bottom: 10%;
 }
-
+#designcontent{
+    max-width: 50%;
+    font-size: 0.9rem;
+    justify-content: right;
+}
 form{
     grid-column: span;
 }
@@ -214,12 +231,15 @@ form{
     width: 30%;
     min-width: 40%;
 }
+#registerForm{
+    margin-left: 10px;
+}
 /* For the slideshow*/ 
 .slideshow-container {
     display: flex;
     justify-content: center;
     height: 600px;
-    margin: 0 30px;
+    margin: 30px 30px;
     background-color: rgba(255,255,255,1);
     margin-bottom: 5vh;
   } 
@@ -249,30 +269,6 @@ form{
     user-select: none;
   }
   
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
-  .text {
-    color: white;
-  }
-  
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
   
   /* The dots/bullets/indicators */
   .dot {
@@ -320,6 +316,12 @@ form{
 
 
   @media screen and (max-width: 1024px){
+    #designcontent{
+        max-width: 100%;
+    }
+    body{
+        font-size: 22px;
+    }
     #logosvg{
         width: 30%;
     }
@@ -328,9 +330,13 @@ form{
     }
     #scroll{
         font-size: 1rem;
+        left: 41%;
     }
     #logo{
         width: 100%;
+    }
+    #sec1content{
+        max-width: 100%;
     }
     .aboutAndReg{
         display: grid;
@@ -338,7 +344,9 @@ form{
         grid-template-rows: 50% 50%;
         margin:5vw;
     }
-
+    .sectionContainer>div{
+        width: 60%;
+    }
     .slideshow-container {
         display: flex;
         justify-content: center;
@@ -357,12 +365,12 @@ form{
         width: 90vw;
       }
      .aboutCSI:first-child{
-         font-size: medium;
+         font-size: 0.1rem;
          text-align: center;
      }
      #aboutCSI{
-        margin-top: 23%;
-        font-size: 0.7rem;
+        margin-top: 5%;
+        font-size: 1rem;
     }
 }
 @media screen and (max-width: 768px){
@@ -379,19 +387,26 @@ form{
     #PygameP{
         width: 100%;
     }
+    .sectionContainer>div{
+        width: 100%;
+    }
     #page1{
         background-image: none;
     }
     #scroll{
-        font-size: 0.6rem;
+        font-size: 0.8rem;
+        left: 39%;
     }
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: auto;
     }
 }
 @media screen and (max-width: 540px){
+    .dates{
+        margin-top: 0%;
+    }
     body{
-        font-size: 16px;
+        font-size: 13px;
     }
     #page1{
         background-image: none;
@@ -400,12 +415,14 @@ form{
         width: 60%;
     }
     #scroll{
-        left: 41%;
+        left: 33%;
     }
     #controllerImg{
         left: -30vw;
     }
     .sectionContainer{
+        display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         font-size: 0.8em;
         width: 95%;
@@ -417,5 +434,32 @@ form{
     }
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: 85%;
+    }
+}
+@media only screen and (max-width: 377px){
+    body{
+        font-size: 10px;
+    }
+    #designcontent{
+        font-size: 0.8rem;
+    }
+    .sectioncontainer{
+        background-color: aqua;
+        margin-top: 100px;
+    }
+    #scroll{
+        left: 29%;
+    }
+    .bg{
+        height: 90%;
+    }
+    #controllerImg{
+        display: none;
+    }
+    .sectionContainer>div{
+        width: 100%;
+    }
+    #phoneImg{
+        display: none;
     }
 }
