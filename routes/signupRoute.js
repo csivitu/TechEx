@@ -13,26 +13,8 @@ signup.get('/', (req, res) => {
   res.render('signup');
 });
 
+
 signup.post('/', async (req, res) => {
-  /* if (!req.body.captcha) {
-    res.send({ success: false, status: 'captcha-not-done' });
-    return;
-  }
-
-  const query = stringify({
-    secret: process.env.SECRET_KEY,
-    response: req.body.captcha,
-    remoteip: req.connection.remoteAddress,
-  });
-
-  const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
-  const body = await fetch(verifyURL).then((response) => response.json());
-
-  if (body.success !== undefined && !body.success) {
-    res.send({ success: false, status: 'Failed-captcha-verification' });
-    return;
-  }
-*/
 
   console.log('1');
   console.log(req.body);
@@ -41,13 +23,11 @@ signup.post('/', async (req, res) => {
     return;
   }
 
-  
   if (req.body.email.length > 150 || req.body.password.length > 150
     || req.body.name.length > 150) {
     res.redirect('/signup');
     return;
   }
-  
 
   console.log('2');
 

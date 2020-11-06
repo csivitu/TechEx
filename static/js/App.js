@@ -11,7 +11,7 @@ window.onload=()=>{
     new fullpage('#fullpage',{
         
         css3:true,
-        anchors:['firstpage','secondpage','thirdpage','fourthpage','fifthpage'],
+        anchors:['homepage','whatistechex','uiwithfigma','pygame','signup'],
         scrollOverflow: true,
         scrollingSpeed:2000,
         menu: '#menu',

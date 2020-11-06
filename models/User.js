@@ -11,7 +11,6 @@ const users = mongoose.model('users', mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    index: true,
     trim: true,
   },
 
