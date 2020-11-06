@@ -7,11 +7,13 @@ const findSec = (index) =>{
         case 4 : return(".sec5");break;
     }
 }
-new fullpage('#fullpage',{
+window.onload=()=>{
+    new fullpage('#fullpage',{
+        
         css3:true,
         anchors:['homepage','whatistechex','uiwithfigma','pygame','signup'],
         scrollOverflow: true,
-        scrollingSpeed:1000,
+        scrollingSpeed:2000,
         menu: '#menu',
         autoScrolling:true,
         scrollHorizontally: true,
@@ -25,18 +27,21 @@ new fullpage('#fullpage',{
                 back.pause()
             }else if(direction==="down"){
                 if(!(destination.isLast))
-                    back.fromTo(sec,{rotation: -5},{rotation: 3,duration: 1.2,delay: 0.7});
+                    back.fromTo(sec,{rotation: -5},{rotation: 3,duration: 1,delay: 0.7});
             }
             else if(direction==="up"){
                 if(!(destination.isFirst))  
-                    back.fromTo(sec,{rotation: 1},{rotation: -3,duration: 1.2,delay: 1});
+                    back.fromTo(sec,{rotation: 1},{rotation: -3,duration: 1,delay: 1});
             }
                 
         }  
     });
+}
+// fullpage_api.setScrollingSpeed(1000);
 const timeline = gsap.timeline({defaults:{ease:"power1.out"}});
-timeline.to("#scroll",{opacity:1, duration: 1,delay:.3})
-    .fromTo("#logo",{opacity:0 ,y:"+3%"},{opacity:1,y:"0%",duration: 0.4},"-=1");
+timeline.fromTo("nav",{opacity: 0},{opacity: 1,duration: 1.5,})
+    .to("#scroll",{opacity:1, duration: 1,delay:.3},"-=1")
+    .fromTo("#logo",{opacity:0 ,y:"+3%"},{opacity:1,y:"0%",duration: 0.4},"-=1.3");
 
 // Code for the slideshow
 var slideIndex = 1;
