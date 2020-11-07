@@ -30,24 +30,38 @@
         <div class="section sec1" id="page1">
             <div style="position: relative; top:-10%;" id="logo">
                 <img src="../static/img/techexlogo.png" alt="TechEx"  id="logosvg">
-                <p id="logoTag"><b>An introduction to everything tech!</b></p>
+                <p id="logoTag"><b>An introduction to everything tech</b></p>
             </div>
-            <div id="scroll"><a href="#signup"><button type="button">Register</button></a>
-                </br></br>
-                Scroll down for more info!
+            <div id="scroll">
+                <div style="width: auto;">
+                    <a href="#signup"><button type="button">Register</button></a>
+                    </br></br>
+                    Scroll down for more info!
+                </div>
             </div>
         </div>
          <!-- INTRO TO PyGame -->
         <div class="section" id="page2">
-            <div class="bg sec2"></div>
+            <div id="rectImg">
+                <img src="../static/img/firstpageAssets/rect.png" width="20%" height="20%">
+            </div>
+            <div id="marioImgDiv">
+                <img src="../static/img/firstpageAssets/bigmario.png" id="marioImg">
+            </div>
             <div class="sectionContainer" id="s2">
+               
+                <div style="opacity: 0.5;">
+                    <img src="../static/img/firstpageAssets/question.png" id="questionImg">
+                </div>
                 <div>
-                <h1><b>What is <span style="color: white;">TechEx</span></b></h1>
-                <p id="sec1content">
-                    And the doors to TechEx are open again! We've got the perfect 
-                    introduction to tech and design on the other side. 
-                    What are you waiting for? Scroll Down!
-                </p>
+                    <div><h1 style="margin-bottom: 0px;"><b>What is <span style="color: #fb8449">TechEx</span></b></h1></div>
+                   <div style="display: flex; justify-content: center"> 
+                       <p id="intro">
+                            And the doors to TechEx are open again! We've got the perfect 
+                            introduction to tech and design on the other side. 
+                            What are you waiting for? Scroll Down!
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,16 +77,13 @@
                     <h1><b><span style="color: white;">UI</span> design with <span style="color: white;">Figma</span></b></h1>
                     <p id="designcontent" >
                         Want to make your app design  look more aesthetic?
-
                         Want to be a part of something other than just coding?</br>
-                        </br></br>
-                        
+                        </br>
                         We invite you to join us in the world of design where you learn 
                         something others dont know, stand out and get creative with us.
-                        </br></br>
-                        
+                        </br>
                         Put your creative skills into use and learn with us at our workshop 
-                        on UI design using Figma !
+                        on UI design using Figma!
                     </p>
                      <h2 class="dates"><i class="far fa-calendar"  style="padding-right: 7px;"></i>  18<sup>th</sup> November 2020</h2>
                 </div>
@@ -85,21 +96,21 @@
         <div class="section" id="page4">
             <div class="bg sec4"></div>
             <div class="sectionContainer" id="s3">
-                <div>
-                <h1><b>Intro to <span style="color: white;">PyGame</span></b></h1>
-                <p id="sec1content">
-                    Have you ever been enthralled by a video game and have wanted to build your own?
-                    For making a game of your choice, a little bit of python programming is all you need to know. 
-                    Learn Python the fun way by making games of your choice and discover the ease of coding with us
-                 </p>
-                 <h2 class="dates"><i class="far fa-calendar"  style="padding-right: 7px;"></i>  22<sup>nd</sup> November 2020</h2>
+                <div id="pygamecontent"><h1><b>Intro to <span style="color: white;">PyGame</span></b></h1></div>
+                <div id="pygamecontent">
+                    <p style="width: 100%;">
+                        Have you ever been enthralled by a video game and have wanted to build your own?
+                        For making a game of your choice, a little bit of python programming is all you need to know. 
+                    </br></br>
+                        Learn Python the fun way by making games of your choice and discover the ease of coding with us
+                    </p>
                 </div>
-                
+                 <div id="pygamecontent"><h2 class="dates"><i class="far fa-calendar"  style="padding-right: 7px;"></i>  22<sup>nd</sup> November 2020</h2></div> 
             </div>
             <img src="../static/img/controllerAsset.svg"  id="controllerImg">
          </div>
          <!-- REGISTRATION FORM AND STUFF -->
-         <div class="section sec5" id="register" style="background-color: #f58c57;">
+         <div class="section sec5" id="register" style="background-color: #fb8449;">
 
             <div class = "last"> 
                 <div class="slideshow-container">
@@ -149,22 +160,9 @@
                     <span class="dot" onclick="currentSlide(10)"></span> 
                 </div>
                 <div class="aboutAndReg">
-    
-                    <div id="registerForm">
-                        <h1><b>Interested? Let's get you registered!</b></h1>
-                        <form method="POST" action="">
-                            <input type="text" name="name" placeholder="Enter your name" id="name"/>
-                            <input type="email" name="email" placeholder="Email ID" id="email"/>
-                            <input type="tel" name="mobile" pattern="[1-9][0-9]{9}" placeholder="Mobile Number" id="mobile"/>
-                            <input type="password" name="password" placeholder="Enter password" id="password"/>
-                            <input type="password" name="confirmedPassword" placeholder="Re-enter your password" id="rePassword"/>
-                            </br>
-                            <div class="g-recaptcha" data-sitekey="6LdOnN4ZAAAAANbDp_hRP0r51cJGsmOBMPjbOiMq"></div>
-                            <input type="submit" value="REGISTER" id="submitBtn">
-                            <div id="spitErrors" style="font-size: 0.9rem;"></div>
-                        </form>
-                    </div>
                     <div id="aboutCSI">
+                    </br>
+                        <h3><b>About CSI</b></h3>
                         <p style="font-weight: bold;">
                             The Computer Society of India is the largest body of non-profit computer professionals
                             in India. We are a group of skilled desginers, developers, and tech enthusiasts who 
@@ -175,20 +173,39 @@
                             to see more of who we are and what work we do.
                         </p>
                     </div>
+                    <div id="registerForm">
+                        <h3><b>Interested? Let's get you registered!</b></h3>
+                        <form method="POST" action="">
+                            <input type="text" name="name" placeholder="Enter your name" id="name"/>
+                            <input type="email" name="email" placeholder="Email ID" id="email"/>
+                            <input type="tel" name="mobile" pattern="[1-9][0-9]{9}" placeholder="Mobile Number" id="mobile"/>
+                            <input type="password" name="password" placeholder="Enter password" id="password"/>
+                            <input type="password" name="confirmedPassword" placeholder="Re-enter your password" id="rePassword"/>
+                            <div class="g-recaptcha" data-sitekey="6LeFNOAZAAAAAAKtE1U2fnt1Pz0-HMEZ1k4I44Xk"></div>
+                            <input type="submit" value="REGISTER" id="submitBtn">
+                            <div id="spitErrors" style="font-size: 0.9rem;"></div>
+                        </form>
+                    </div>
                 </div>
 
             </div>
          </div>
     </div>
-    <ul id="menu">
-        <li data-menuanchor="homepage" class="active"><a class="nav-link" href="#homepage">Home</a></li>
-        <li data-menuanchor="whatistechex"><a class="nav-link" href="#whatistechex">About</a></li>
-        <li data-menuanchor="uiwithfigma"><a class="nav-link" href="#uiwithfigma">Events</a></li>
-        <li data-menuanchor="signup"><a class="nav-link" href="#signup">Register</a></li>
-    </ul>
-    
+    <div style=" position: fixed; top:0; z-index: 10; padding-bottom: -5px;
+     width: 100%;" id="navContainer">
+        <nav>
+            <div><a  data-menuanchor="homepage" href="#homepage"><h2 class="navbar-brand"><b>TechEx</b></h2></a></div>
+            <div>
+            <ul id="menu">
+                <li data-menuanchor="whatistechex"><a class="nav-link" href="#whatistechex">About</a></li>
+                <li data-menuanchor="uiwithfigma"><a class="nav-link" href="#uiwithfigma">Events</a></li>
+                <li data-menuanchor="signup"><a class="nav-link" href="#signup">Register</a></li>
+            </ul>
+            </div>
+        </nav>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="../static/js/App.js"></script>
-    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../static/js/signup.js"></script>
     

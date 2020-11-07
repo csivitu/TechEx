@@ -31,7 +31,11 @@ const findSec = (index) =>{
                 if(!(destination.isFirst))  
                     back.fromTo(sec,{rotation: 1},{rotation: -3,duration: 1.2,delay: 1});
             }
-                
+            if(destination.isLast){
+                document.getElementById("navContainer").style.backgroundColor="white";
+            }else{
+                document.getElementById("navContainer").style.backgroundColor="transparent";
+            }
         }  
     });
 const timeline = gsap.timeline({defaults:{ease:"power1.out"}});

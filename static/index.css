@@ -1,33 +1,45 @@
 html{
     scroll-behavior: smooth;
+    font-size: 24px;
 }
 body{
     margin: 0;
     padding: 0;
     font-family: Helvetica;
-    font-size: 35px;
+   
 }
 button{
     font-weight: bolder;
     border:none;
     font-size: 1rem;
-    padding: 10%;
+    padding: 10px;
     text-decoration: none;
-    background-color: #f58c57;
+    background-color: #fb8449;
     color: black;
 }
-h2{
-    font-size: 1.7rem;
+nav{
+    top: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: baseline;
+    padding-bottom: 0;
+    width: 85%;
+    padding: 0 7%;
+    z-index:999;
+}
+
+#navContainer{
+    position: fixed; 
+    top:0; 
+    z-index: 10;
+     width: 100%;
+     height: auto;
 }
 #menu{
-    position: fixed;
     display: flex;
     font-size: 0.9rem;
-    top: 0;
-    z-index: 999;
-    min-height: 5vh;
     justify-content: center;
-    background-color: transparent;
     justify-items: space-around;
 }
 #last{
@@ -52,17 +64,16 @@ h2{
     text-transform: uppercase;
 }
 .sectionContainer>div{
-    width: 80%;
+    width: 90%;
 }
 .section{
     position: relative;
     margin-bottom: 30px;
     display: flex;
-    justify-content: flex-start;
     
 }
 .bg{
-    background-color: #f58c57;
+    background-color: #fb8449;
     width: 100%;
     height: 75%;
     top: 15%;
@@ -75,23 +86,21 @@ h2{
     position: absolute;
 }
 
-#s3.sectionContainer{
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-self: left;
-    vertical-align: left;
-}
+#s3{
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-end;
+    align-self: flex-end;
+} 
 .sectionContainer{
     z-index: 1;
     top:20%;
     /* margin-right: 135px; */
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-  
     max-width: 1260px ;
     width: 90%;
-    padding: 0px;
+    padding-top: 3%;
     max-height: 500px;
     font-size: 1rem;
     left: 10px;
@@ -100,7 +109,6 @@ h2{
     margin: auto;
 }
 .sectionContainer>div>h1{
-    font-size: 3rem; 
     padding: 0;
     margin: 0;
 }
@@ -109,29 +117,47 @@ h2{
     margin-top: 9%;
 }
 .sectionContainer#s2{
-    justify-content: flex-end;
-    margin-left: 30%;
+    position: absolute;
+    top: 20%;
+    align-items: center;
+    width: 95%;
+    
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
-.sectionContainer>div>p{
-    max-width: 60%;
+#questionImg{
+    width:5% ;
+    height:5%;
+}
+#marioImgDiv{
+    position: absolute;
+    left: 7%;
+    bottom: 15%;
+    z-index: -10;
+    opacity: 1;
+}
+#rectImg{
+    position: relative;
+    bottom: 20%;
+    left: 70%;
+    opacity: 0.74;
 }
 .sectionContainer#s4{
     justify-content: flex-start;
 }
-
 #aboutCSI{
-    padding: 10%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    font-size: 0.9rem;
+    padding-top: 1%;
+    padding-left: 1%;
+}
+#aboutCSI>p{
+    padding-right: 7%;
+    font-size: 0.8rem;
 }
 
 #sec1content{
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     margin-top: 3%;
-    margin-bottom: 10%;
 }
 li{
     list-style: none;
@@ -139,29 +165,35 @@ li{
 .nav-link{
     color: black;
     font-weight: bold;
-    margin-left: 10px;
+    padding: 0 15px;
 }
 
 #page1{
    z-index: 1;
-   background-image: url(./img/bg.jpeg);
+   background-image: url(./img/bg.svg);
    background-repeat: no-repeat;
    background-size: cover;
-   background-attachment: fixed;
+   background-position: center;
    text-align: center;
 }
 #scroll{
     position: absolute; 
     font-size: 1rem;
-    left: 42%;
+    width: 100%;
+    text-align: center;
+    left: 0;
     bottom: 10%;
     opacity: 0;
     text-align: center;
 }
 .navbar-brand{
-    color: #f58c57;
+    margin-top: 0;
+    color: #fb8449;
+    margin-bottom: 0;
 }
-
+#pygamecontent{
+    width: 50%;
+}
 a{
     text-decoration: none;
 }
@@ -181,14 +213,14 @@ width: auto;
 /* padding-left: 200px; */
 top:10vh;
 position: absolute;
-left :50vw;
+left :10vw;
 height: 90%;
 width: auto;
 }
 
 input[type=email], input[type=text],input[type=password],input[type=tel]{
     border: none;
-    width: 50%;
+    width: 80%;
     border-bottom: 2px solid white;
     color: white;
     background-color: transparent;
@@ -201,7 +233,8 @@ input[type=submit]{
     font-weight: bolder;
     border:none;
     text-decoration: none;
-    color: #f58c57;
+    color: #fb8449;
+    max-width: 100px;
     background-color: white;
 }
 ::placeholder { 
@@ -226,15 +259,15 @@ input[type=submit]{
     margin-bottom: 10%;
 }
 #designcontent{
-    max-width: 50%;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    max-width: 60%;
+    font-size: 1rem;
     justify-content: right;
-    margin-top: 5%;
-    margin-bottom: 7%;
+    margin-top: 3%;
+    margin-bottom: -3%;
 }
 form{
-    grid-column: span;
+    display: flex;
+    flex-flow: column nowrap;
 }
 #PygameP{
     width: 30%;
@@ -298,57 +331,50 @@ form{
     to {opacity: 1}
   }
 
-
-  .aboutAndReg{
-      display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: space-around;
+  #marioImg{
+    width:30%;
+    height:30%;
   }
-
-
-
-  @media screen and (max-width: 1090px){
-    #page1{
-        background-image: none;
+  .aboutAndReg{
+    display: grid;
+    padding: 0 3%;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    height: max-content;
+  }
+  #intro{
+    width: 70%;
+}
+  @media screen and (min-width: 1440px){
+    html{
+        font-size: 30px;
     }
+    #s2{
+        left: 5%;
+    }
+    
+}
+  @media screen and (max-width: 1090px){
     #designcontent{
         max-width: 100%;
     }
-    body{
-        font-size: 22px;
+    html{
+        font-size: 20px;
     }
     #logosvg{
         width: 30%;
-    }
-    #page1{
-        background-image: none;
-    }
-    #scroll{
-        font-size: 1rem;
-        left: 41%;
     }
     #logo{
         width: 100%;
     }
     #sec1content{
-        max-width: 100%;
+        max-width: auto;
         line-height: 1.6;
-        font-size: 1.2rem;
     }
-    .aboutAndReg{
-        display: grid;
-        grid-template-columns: none;
-        grid-template-rows: 50% 50%;
-        margin:5vw;
-    }
+
     .sectionContainer>div{
         width: 60%;
     }
-   #s2.sectionContainer{
-       margin-left: 0;
-   }
     .slideshow-container {
         display: flex;
         justify-content: center;
@@ -362,22 +388,29 @@ form{
         height: 100%;
         
       }
-
-     .aboutCSI{
-        width: 90vw;
-      }
-     .aboutCSI:first-child{
-         font-size: 0.1rem;
-         text-align: center;
-     }
      #aboutCSI{
         margin-top: 5%;
-        font-size: 1rem;
+        grid-row:2;
+    }
+    #registerForm{
+        grid-row: 1;
+    }
+    .aboutAndReg{
+        grid-template-columns: none;
+        grid-template-rows:  auto 45%;
+        padding:10%;
     }
 }
 @media screen and (max-width: 768px){
-    body{
-        font-size: 18px;
+    
+    #s2{
+        left:0;
+    }
+    html{
+        font-size: 20px;
+    }
+    .sectionContainer{
+        padding-top: 3%;
     }
     #logo{
         width: 100%;
@@ -385,33 +418,69 @@ form{
     #logosvg{
         width: 40%;
         height: 20%;
+        width: 30%;
+        height: 30%;
+    }
+    #intro{
+       width: 100%;
     }
     #PygameP{
         width: 100%;
     }
+    #marioImgDiv{
+        display: none;
+
+    }
+    #rectImg{
+        display: none;
+    }
+    
     .sectionContainer>div{
         width: 100%;
     }
     #page1{
         background-image: none;
     }
-    #scroll{
-        font-size: 0.8rem;
-        left: 39%;
-    }
+  
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: auto;
     }
 }
+
 @media screen and (max-width: 540px){
+    #controllerImg{
+        display: none;
+    }
+    #phoneImg{
+        display: none;
+    }
     .dates{
         margin-top: 0%;
     }
     #designcontent{
         margin-bottom: 5%;
     }
-    body{
-        font-size: 13px;
+    #pygamecontent{
+        width: 100%;
+    }
+    #questionImg{
+        width: 10%;
+        height: 10%;
+    }
+    #marioImgDiv{
+        display: block;
+        bottom: 5%;
+        left: 24%;
+     }
+    #marioImg{
+        width: 70%;
+        height: 70%;
+    }
+    html{
+        font-size: 18px;
+    }
+    #s2>div{
+        width: 100%;
     }
     #page1{
         background-image: none;
@@ -419,20 +488,21 @@ form{
     #logosvg{
         width: 60%;
     }
-    #scroll{
-        left: 33%;
+    .bg{
+        height: 87%;
     }
+   
     #controllerImg{
         left: -30vw;
     }
     .sectionContainer{
         display: flex;
+        line-height: 1.6;
         flex-direction: column;
         justify-content: flex-start;
-        font-size: 0.8em;
         width: 95%;
         left: 0;
-        padding: 12px;
+        padding: 8px;
     }
     #aboutCSI{
         flex-direction: column;
@@ -442,11 +512,8 @@ form{
     }
 }
 @media only screen and (max-width: 377px){
-    body{
-        font-size: 10px;
-    }
-    #designcontent{
-        font-size: 1.0rem;
+    html{
+        font-size: 14px;
     }
     .sectioncontainer{
         margin-top: 100px;
@@ -454,19 +521,9 @@ form{
     #sec1content{
         margin-top: 8%;
     }
-    #scroll{
-        left: 29%;
-    }
-    .bg{
-        height: 87%;
-    }
-    #controllerImg{
-        display: none;
-    }
+
     .sectionContainer>div{
         width: 100%;
     }
-    #phoneImg{
-        display: none;
-    }
+    
 }
