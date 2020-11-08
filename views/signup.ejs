@@ -6,28 +6,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css" 
     integrity="sha512-8M8By+q+SldLyFJbybaHoAPD6g07xyOcscIOQEypDzBS+sTde5d6mlK2ANIZPnSyxZUqJfCNuaIvjBUi8/RS0w==" 
     crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.extensions.min.js"
+    integrity="sha512-pci5WG2+7QnpsinWWpGUd3RgI61fU1bWlQQQegC2mVqwOQC/+Xp0ROGO0AYB6dvoLBYRxwm+t+DWOVRkxmlcdQ==" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/vendors/scrolloverflow.min.js" 
+    integrity="sha512-pYyQWhzi2lV+RM4GmaUA56VPL48oLVvsHmP9tuQ8MaZMDHomVEDjXXnfSVKXayy+wLclKPte0KbsuVoFImtE7w==" 
+    crossorigin="anonymous"></script>
+    <script
+    src="https://kit.fontawesome.com/fc31dedf63.js"    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" 
+        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" 
+        crossorigin="anonymous"></script>
 
 
     <link rel="icon" href="../static/img/favicon.ico" />
+    <link rel="preload" as="script" href="../static/js/App.js">
     <link rel="stylesheet" href="../static/index.css"/>
+
     
     <title>TechEx 2020</title>
 </head>
 <body>
     <div id="fullpage">
-        
         <div class="section sec1" id="page1">
             <div style="position: relative; top:-10%;" id="logo">
                 <img src="../static/img/techexlogo.png" alt="TechEx"  id="logosvg">
-                <p id="logoTag"><b>An introduction to everthing tech!</b></p>
+                <p id="logoTag"><b>An introduction to everything tech!</b></p>
             </div>
-            <p id="scroll">Scroll Down</br><i class="fas fa-chevron-circle-down"></i>
-            </p>
+            <div id="scroll"><a href="#signup"><button type="button">Register</button></a>
+                </br></br>
+                Scroll down for more info!
+            </div>
         </div>
-
-        <!----WHAT IS TECHEX -->
+         <!-- INTRO TO PyGame -->
         <div class="section" id="page2">
-            <div class="bg sec2" ></div>
+            <div class="bg sec2"></div>
             <div class="sectionContainer" id="s2">
                 <div>
                 <h1><b>What is <span style="color: white;">TechEx</span></b></h1>
@@ -42,15 +56,15 @@
 
 
 
-        <!-- INTRO TO PyGame -->
+        <!----WHAT IS TECHEX -->
         <div class="section" id="page3">
             <div class="bg sec3">
             </div>
             <div class="sectionContainer" id="s4">
                 <div>
                     <h1><b><span style="color: white;">UI</span> design with <span style="color: white;">Figma</span></b></h1>
-                    <p id="sec1content">
-                        Want to make your app design  look more aesthetic?</br>
+                    <p id="designcontent" >
+                        Want to make your app design  look more aesthetic?
 
                         Want to be a part of something other than just coding?</br>
                         </br></br>
@@ -61,11 +75,8 @@
                         
                         Put your creative skills into use and learn with us at our workshop 
                         on UI design using Figma !
-                        </br></br>
-                        
-                        Join us in the world of design where you push your creative boundaries, think out of the box and get creative with us!
-                     </p>
-                     <h1 style="color: white; margin-top: 9%;">18th November 2020</h1>
+                    </p>
+                     <h2 class="dates"><i class="far fa-calendar"  style="padding-right: 7px;"></i>  18<sup>th</sup> November 2020</h2>
                 </div>
             </div>
             <img src="../static/img/phoneAsset.svg"  id="phoneImg">
@@ -83,7 +94,7 @@
                     For making a game of your choice, a little bit of python programming is all you need to know. 
                     Learn Python the fun way by making games of your choice and discover the ease of coding with us
                  </p>
-                 <h1 style="color: white; margin-top: 20%;">22nd November 2020</h1>
+                 <h2 class="dates"><i class="far fa-calendar"  style="padding-right: 7px;"></i>  22<sup>nd</sup> November 2020</h2>
                 </div>
                 
             </div>
@@ -95,48 +106,36 @@
             <div class = "last"> 
                 <div class="slideshow-container">
                     <div class="mySlides fade">
-                        <div class="numbertext"><span style="color: black;">1 / 10</span></div>
                         <img src="../static/img/slideshow/img1.JPG" >
                     
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">2 / 10</div>
                         <img src="../static/img/slideshow/img2.jpg">
                     </div>
                     
                     <div class="mySlides fade">
-                        <div class="numbertext">3 / 10</div>
                         <img src="../static/img/slideshow/img3.jpg" >
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">4 / 10</div>
                         <img src="../static/img/slideshow/img4.jpg" >
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">5 / 10</div>
                         <img src="../static/img/slideshow/img5.jpg" >
-                        <div class="text">Caption Three</div>
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">6 / 10</div>
                         <img src="../static/img/slideshow/img6.jpg" >
-                        <div class="text">Caption Three</div>
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">7 / 10</div>
                         <img src="../static/img/slideshow/img7.jpg" >
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">8 / 10</div>
-                        <img src="../static/img/slideshow/img8.jpg" >
+                        <img src="../static/img/slideshow/img8.JPG" >
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">9 / 10</div>
-                        <img src="../static/img/slideshow/img9.jpg">
+                        <img src="../static/img/slideshow/img9.JPG">
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">10 / 10</div>
-                        <img src="../static/img/slideshow/img10.jpg">
+                        <img src="../static/img/slideshow/img10.JPG">
                     </div>
                 </div>
                 <div style="text-align:center">
@@ -145,7 +144,7 @@
                     <span class="dot" onclick="currentSlide(3)"></span> 
                     <span class="dot" onclick="currentSlide(4)"></span> 
                     <span class="dot" onclick="currentSlide(5)"></span> 
-                    <span class="dot" onclick="currentSlide(5)"></span> 
+                    <span class="dot" onclick="currentSlide(6)"></span> 
                     <span class="dot" onclick="currentSlide(7)"></span> 
                     <span class="dot" onclick="currentSlide(8)"></span> 
                     <span class="dot" onclick="currentSlide(9)"></span> 
@@ -155,14 +154,15 @@
     
                     <div id="registerForm">
                         <h1><b>Interested? Let's get you registered!</b></h1>
-                        <form method="POST" action="">
-                            <input type="text" name="name" placeholder="Enter you name" id="name"/>
+                        <form action="/" method="post" enctype="application/x-www-form-urlencoded">
+                            <input type="text" name="name" placeholder="Enter your name" id="name"/>
                             <input type="email" name="email" placeholder="Email ID" id="email"/>
-                            <input type="tel" name="mobile" pattern="[1-9][0-9]{9}" placeholder="Mobile Number" id="mobile"/>
+                            <input type="tel" name="phone" pattern="[1-9][0-9]{9}" placeholder="Mobile Number" id="phone"/>
                             <input type="password" name="password" placeholder="Enter password" id="password"/>
                             <input type="password" name="confirmedPassword" placeholder="Re-enter your password" id="rePassword"/>
                             </br>
-                            <input type="submit" value="REGISTER">
+                            <div class="g-recaptcha" data-sitekey="6LeFNOAZAAAAAAKtE1U2fnt1Pz0-HMEZ1k4I44Xk"></div>
+                            <input type="submit" value="REGISTER" id="submitBtn">
                             <div id="spitErrors" style="font-size: 0.9rem;"></div>
                         </form>
                     </div>
@@ -183,34 +183,17 @@
          </div>
     </div>
     <ul id="menu">
-        <li data-menuanchor="firstpage" class="active"><a class="nav-link" href="#firstpage">Home</a></li>
-        <li data-menuanchor="secondpage"><a class="nav-link" href="#secondpage">About</a></li>
-        <li data-menuanchor="thirdpage"><a class="nav-link" href="#thirdpage">Events</a></li>
-        <li data-menuanchor="fifthpage"><a class="nav-link" href="#fifthpage">Register</a></li>
+        <li data-menuanchor="homepage" class="active"><a class="nav-link" href="#homepage">Home</a></li>
+        <li data-menuanchor="whatistechex"><a class="nav-link" href="#whatistechex">About</a></li>
+        <li data-menuanchor="uiwithfigma"><a class="nav-link" href="#uiwithfigma">Events</a></li>
+        <li data-menuanchor="signup"><a class="nav-link" href="#signup">Register</a></li>
     </ul>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.extensions.min.js"
-    integrity="sha512-pci5WG2+7QnpsinWWpGUd3RgI61fU1bWlQQQegC2mVqwOQC/+Xp0ROGO0AYB6dvoLBYRxwm+t+DWOVRkxmlcdQ==" 
-    crossorigin="anonymous"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/vendors/scrolloverflow.min.js" 
-    integrity="sha512-pYyQWhzi2lV+RM4GmaUA56VPL48oLVvsHmP9tuQ8MaZMDHomVEDjXXnfSVKXayy+wLclKPte0KbsuVoFImtE7w==" 
-    crossorigin="anonymous"></script>
-
-
-
-
-    <script
-    src="https://kit.fontawesome.com/fc31dedf63.js"
-    crossorigin="anonymous"
-    ></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" 
-        integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" 
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../static/js/App.js"></script>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="../static/js/signup.js"></script>
 </body>
 </html>
