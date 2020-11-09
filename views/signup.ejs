@@ -175,13 +175,14 @@
                     </div>
                     <div id="registerForm">
                         <h3><b>Interested? Let's get you registered!</b></h3>
-                        <form method="POST" action="">
+                        <form>
                             <input type="text" name="name" placeholder="Enter your name" id="name"/>
                             <input type="email" name="email" placeholder="Email ID" id="email"/>
                             <input type="tel" name="phone" pattern="[1-9][0-9]{9}" placeholder="Mobile Number" id="phone"/>
                             <input type="password" name="password" placeholder="Enter password" id="password"/>
                             <input type="password" name="confirmedPassword" placeholder="Re-enter your password" id="rePassword"/>
-                            <div class="g-recaptcha" data-sitekey="6LeFNOAZAAAAAAKtE1U2fnt1Pz0-HMEZ1k4I44Xk"></div>
+                            <input type="text" name="regnumber" placeholder="Enter regitration number if VITIAN" id="regnumber" maxlength="9" minlength="9" style="text-transform: uppercase"/>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LeFNOAZAAAAAAKtE1U2fnt1Pz0-HMEZ1k4I44Xk"></div> -->
                             <input type="submit" value="REGISTER" id="submitBtn">
                             <div id="spitErrors" style="font-size: 0.9rem;"></div>
                         </form>
@@ -204,8 +205,10 @@
             </div>
         </nav>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="../static/js/App.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
+    <script src='../static/js/signup.js'></script> 
 </body>
 </html>

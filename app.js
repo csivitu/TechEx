@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.post('/', async (req, res) => {
   console.log('1');
   console.log(req.body);
+
   // if (!req.body.captcha) {
   //   return res.json({ success: false, msg: 'Please select captcha' });
   // }
@@ -30,53 +31,54 @@ app.post('/', async (req, res) => {
   const secretKey = process.env.SECRET_KEY;
 
   // Verify URL
-  const query = stringify({
-    secret: secretKey,
-    response: req.body.captcha,
-    remoteip: req.connection.remoteAddress,
-  });
-  const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
+  // const query = stringify({
+  //   secret: secretKey,
+  //   response: req.body.captcha,
+  //   remoteip: req.connection.remoteAddress,
+  // });
+  // const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
 
   // Make a request to verifyURL
-  const body = await fetch(verifyURL).then((response) => response.json());
+  // const body = await fetch(verifyURL).then((response) => response.json());
 
   // If not successful
   // if (body.success !== undefined && !body.success) {
   //   return res.json({ success: false, msg: 'Failed captcha verification' });
   // }
 
-  if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
-    res.send({ status: 'success' });
-    return 1;
-  }
+  // if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
+  //   res.send({ status: 'success' });
+  //   return 1;
+  // }
 
-  if (req.body.email.length > 150 || req.body.password.length > 150
-    || req.body.name.length > 150) {
-    res.send({ status: 'success' });
-    return 2;
-  }
+  // if (req.body.email.length > 150 || req.body.password.length > 150
+  //   || req.body.name.length > 150) {
+  //   res.send({ status: 'success' });
+  //   return 2;
+  // }
 
-  console.log('2');
 
-  const newUser = new User({
-    email: req.body.email,
-    name: req.body.name,
-    phone: req.body.phone,
-    password: await hashPassword(req.body.password),
-    timestamp: Date.now(),
-    verified: false,
-  });
+  // const newUser = new User({
+  //   email: req.body.email,
+  //   name: req.body.name,
+  //   phone: req.body.phone,
+  //   password: await hashPassword(req.body.password),
+  //   timestamp: Date.now(),
+  //   verified: false,
+  // });
 
-  let student;
-  try {
-    student = await newUser.save();
-    console.log('3');
-  } catch (e) {
-    console.log(`Error occured: ${e}`);
-    return 0;
-  }
+  // let student;
+  // try {
+  //   student = await newUser.save();
+  //   console.log('3');
+  // } catch (e) {
+  //   console.log(`Error occured: ${e}`);
+  //   return 0;
+  // }
 
   res.send({ status: 'success' });
+  res.status(200);
+  res.end();
 });
 
 

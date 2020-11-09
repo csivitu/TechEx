@@ -37,7 +37,7 @@ const findSec = (index) =>{
                 document.getElementById("navContainer").style.backgroundColor="transparent";
             }
         }  
-    });
+});
 const timeline = gsap.timeline({defaults:{ease:"power1.out"}});
 timeline.to("#scroll",{opacity:1, duration: 1,delay:.3})
     .fromTo("#logo",{opacity:0 ,y:"+3%"},{opacity:1,y:"0%",duration: 0.4},"-=1");

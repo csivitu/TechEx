@@ -1,18 +1,26 @@
-import axios from 'axios';
 
-const signupAjax = async (name, email, phone, password, reenteredPassword) => {
-        const res = await axios({
-            method: 'POST',
-            url: '/signup',
-            data: {
-            name,
-            email,
-            phone,
-            password,
-            reenteredPassword,
-            },
-        });
+
+const signupAjax = async (name, email, phone, password, regnumber) => {
         
+    $.ajax('/',{
+        type: 'POST',
+        data: {
+            name: name,
+            email: email,
+            phone: phone,
+            password: password,
+            regnumber: regnumber
+        },
+        success: (data, status) =>{
+            if (data.status =='success')
+            {
+                showAlert('success', 'Signup Successfull.');
+            }
+        },
+        error: (err) => {
+            console.log('Failed!');
+        }
+    })
         
         
         //     if (res.data.status === 'captcha-not-done') {
@@ -34,32 +42,60 @@ const signupAjax = async (name, email, phone, password, reenteredPassword) => {
         //     }
         // }
 };
+
+
 function showAlert(type, message) {
-  if(type === 'sucess')
-        {document.getElementById('spitErrors').style.color='lightgreen';}
+  if(type === 'success')
+        {
+            document.getElementById('spitErrors').style.color='lightgreen';
+            document.getElementById('spitErrors').innerHTML= message;
+        }
   else if(type==='error')
-        {   document.getElementById('spitErrors').style.color='red'; 
-        document.getElementById('spitErrors').innerHTML= message;}
+        {  
+            document.getElementById('spitErrors').style.color='red'; 
+            document.getElementById('spitErrors').innerHTML= message;
+        }
 }
+
 var onSubmit = () => {
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
-const phone = document.getElementById('phone').value;
-const password = document.getElementById('password').value;
-const reenteredPassword = document.getElementById('rePassword').value;
-signupAjax(name, email, password,reenteredPassword,phone);
+    console.log('Submitting!')
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    const reenteredPassword = document.getElementById('rePassword').value;
+    const regnumber = document.getElementById('regnumber').value.toUpperCase();
+    signupAjax(name, email,phone, password,regnumber);
 }
 
 const checkEmail = (input) => {
 const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   if (!re.test(String(input.value).toLowerCase())) {
             showAlert('error', 'Enter a valid email');
+            return false;
         } else return true;
     };
+
+const checkRegNumber = (reg) => {
+
+    const re = /[1-9][0-9][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]/;
+    reg = reg.toUpperCase();
+    console.log(reg)
+    if(re.test(reg)){
+        return true;
+    }
+
+    showAlert('error','Registration Number not entered properly.')
+
+    showAlert('error', 'Registration number not entered properly!');
+    return false;
+
+}
     
     const checkFieldMatch = (input1, input2) => {
         if (input1.value !== input2.value) {
             showAlert('error', 'Passwords do not match');
+            return false;
         } else return true;
     };
     
@@ -70,8 +106,10 @@ const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0
     const checkLength = (input, min, max) => {
         if (input.value.length < min) {
             showAlert('error', `${getFieldName(input)} must be atleast ${min} characters`);
+            return false;    
         } else if (input.value.length > max) {
             showAlert('error', `${getFieldName(input)} cannot exceed ${max} characters`);
+            return false;
         } else return true;
     };
     
@@ -79,6 +117,7 @@ const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0
     
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
+
         if(!checkEmail(document.getElementById('email'))){
             return;  
         }
@@ -86,10 +125,17 @@ const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0
         if(!checkLength(document.getElementById('password'), 6, 50)){
             return;
         }
+
+
         if (! (checkFieldMatch(document.getElementById('rePassword'), document.getElementById('password')))){
             return;
         }
+
+        if(! checkRegNumber(document.getElementById('regnumber').value)){
+            return;
+        }
+
         onSubmit();
-        grecaptcha.execute();
+        // grecaptcha.execute();
     
     });
