@@ -8,6 +8,10 @@ body{
     font-family: Helvetica;
    
 }
+label{
+    font-size: 0.65rem;
+    color: white;
+}
 button{
     font-weight: bolder;
     border:none;
@@ -224,6 +228,20 @@ input[type=email], input[type=text],input[type=password],input[type=tel]{
     border-bottom: 2px solid white;
     color: white;
     background-color: transparent;
+}
+#spitErrors{
+ font-size: 0.9rem;
+ border-radius: 7px;
+ padding: 10px;
+}
+#pygamechkdiv{
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+#figmachkdiv{
+    margin-top: 20px;
+    border-radius: 10px; 
+    margin-bottom: 10px;
 }
 input{
     padding: 10px;

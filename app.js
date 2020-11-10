@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
 const path = require('path');
-const User = require('./models/User');
+const clients = require('./models/User');
 const { hashPassword } = require('./static/js/hash');
 
 const app = express();
@@ -21,14 +21,15 @@ app.use(bodyParser.json());
 
 
 app.post('/', async (req, res) => {
-  console.log(req.body);
-  // if (!req.body.captcha) {
-  //   return res.json({ success: false, msg: 'Please select captcha' });
-  // }
+
+  if (req.body.captcha===undefined || req.body.captcha === '' || req.body.captcha===null) {
+    return res.send({ status:'error', msg: 'Captcha not verified.' });
+  }
+
+
   // Secret key
   const secretKey = process.env.SECRET_KEY;
 
-  // Verify URL
   const query = stringify({
     secret: secretKey,
     response: req.body.captcha,
@@ -36,60 +37,79 @@ app.post('/', async (req, res) => {
   });
   const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
 
-  // Make a request to verifyURL
+
   const body = await fetch(verifyURL).then((response) => response.json());
 
   // If not successful
-  // if (body.success !== undefined && !body.success) {
-  //   return res.json({ success: false, msg: 'Failed captcha verification' });
-  // }
-
-  if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
-    // res.send({ status: 'failed' });
-    return res.render('signup');
+  if (body.success !== undefined && !body.success) {
+    console.log(body)
+    return res.send({ status:'error', msg: 'Failed captcha verification' });
+  }
+  
+  var vit=false;
+  if(req.body.regnumber !== ''){
+    vit = true;
   }
 
-  if (req.body.email.length > 150 || req.body.password.length > 150
-    || req.body.name.length > 150) {
-    // res.send({ status: 'failed' });
-    return res.render('signup');
+  if (typeof(req.body.email) !== 'string' && typeof(req.body.password) !== 'string' && typeof(req.body.name)!== 'string') {
+    return res.send({ status: 'error', msg:'Please enter string inputs.' });
   }
 
-  // const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // if (!re.test(String(res.body.email).toLowerCase())) {
-  //   return res.render('signup');
-  // }
-
-  if (req.body.confirmedPassword !== req.body.password || req.body.password.length < 7) {
-    // res.send({ status: 'failed' });
-    return res.render('signup');
+  if (req.body.email.length > 150){
+    return res.send({ status: 'error', msg:'Email too long. Seems suspicious' });
+  }
+  
+  if (req.body.password.length > 150) {
+    return res.send({ status: 'error', msg:'Password too long. Seems suspicious' });
+  }
+  
+  if (req.body.name.length > 150) {
+    return res.send({ status: 'error', msg:'Name too long. Seems suspicious' });
   }
 
-  console.log('2');
+  const users = await clients.findOne({ $or: [{ email: req.body.email }, { phone: req.body.phone }, {regnumber: req.body.regnumber}] });
+  if (users) {
+    // console.log(users);
+    if (users.email === req.body.email) {
+        res.send({ status: 'error', msg:`Email ${req.body.email} already exists!` });
+        return;
+      }
 
-  const newUser = new User({
+    if (users.phone === req.body.phone) {
+      res.send({ status: 'error', msg:`Phone number ${req.body.phone} already exists!` });
+      return;
+    }
+    
+    if (users.regnumber === req.body.regnumber && req.body.regnumber !== '') {
+      res.send({ status: 'error', msg:`Registration number ${req.body.regnumber} already exists!` });
+      return;
+      }
+    }
+
+  const newUser = new clients({
     email: req.body.email,
-    name: req.body.name,
+    clientName: req.body.name,
     phone: req.body.phone,
     password: await hashPassword(req.body.password),
     timestamp: Date.now(),
-    verified: false,
+    regnumber: req.body.regnumber,
+    vitian: vit,
+    events: req.body.events
   });
 
-  let student;
+  var student;
   try {
-    student = newUser.save();
-    console.log('3');
+    student = await newUser.save();
+    console.log(student);
   } catch (e) {
     console.log(`Error occured: ${e}`);
-    return res.render('signup');
+    return res.send({status:'error',msg:'Server error!'});
   }
 
-  return res.render('success');
+  res.send({ status: 'success', msg:'You have registered successfully.' });
+  res.status(200);
+  res.end();
 });
-
-
-// ____________________________________
 
 
 app.get('/', (req, res) => {

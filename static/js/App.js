@@ -1,10 +1,10 @@
 const findSec = (index) =>{
     switch(index){
         case 0 : return(".sec1");break;
-        case 1 : return(".sec2");break;
         case 2 : return(".sec3");break;
         case 3 : return(".sec4");break;
         case 4 : return(".sec5");break;
+        default: break;
     }
 }
     new fullpage('#fullpage',{
@@ -37,7 +37,7 @@ const findSec = (index) =>{
                 document.getElementById("navContainer").style.backgroundColor="transparent";
             }
         }  
-    });
+});
 const timeline = gsap.timeline({defaults:{ease:"power1.out"}});
 timeline.to("#scroll",{opacity:1, duration: 1,delay:.3})
     .fromTo("#logo",{opacity:0 ,y:"+3%"},{opacity:1,y:"0%",duration: 0.4},"-=1");
@@ -70,3 +70,19 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+// Design for checkbox selector
+document.getElementById('figma-check').addEventListener('change',(e)=>{
+    const parentDiv = document.getElementById('figmachkdiv')
+    if(e.target.checked)
+        parentDiv.style.backgroundColor="rgba(0,0,0,0.3)";
+    else
+        parentDiv.style.backgroundColor="rgba(0,0,0,0)";
+
+});
+document.getElementById('pygame-check').addEventListener('change',(e)=>{
+   const parentDiv = document.getElementById('pygamechkdiv');
+   if(e.target.checked)
+        parentDiv.style.backgroundColor="rgba(0,0,0,0.3)";
+   else
+        parentDiv.style.backgroundColor="rgba(0,0,0,0)";
+});
