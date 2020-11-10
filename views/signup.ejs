@@ -20,8 +20,8 @@
         crossorigin="anonymous"></script>
     <link rel="icon" href="../static/img/favicon.ico" />
     <link rel="preload" as="script" href="../static/js/App.js">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="../static/index.css"/>
-
     
     <title>TechEx 2020</title>
 </head>
@@ -183,6 +183,7 @@
                             <input type="password" name="confirmedPassword" placeholder="Re-enter your password" id="rePassword"/>
                             <input type="text" name="regnumber" placeholder="Enter regitration number if VITIAN" id="regnumber" maxlength="9" minlength="9" style="text-transform: uppercase"/>
                             <!-- <div class="g-recaptcha" data-sitekey="6LeFNOAZAAAAAAKtE1U2fnt1Pz0-HMEZ1k4I44Xk"></div> -->
+                            <div class="g-recaptcha" data-sitekey="6LcjOOEZAAAAABBXum088pJSakO-xt4qSpVJzkzt"></div>
                             <input type="submit" value="REGISTER" id="submitBtn">
                             <div id="spitErrors" style="font-size: 0.9rem;"></div>
                         </form>
@@ -206,7 +207,6 @@
         </nav>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="../static/js/App.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>   
     <script src='../static/js/signup.js'></script> 

@@ -1,6 +1,6 @@
 
 
-const signupAjax = async (name, email, phone, password, regnumber) => {
+const signupAjax = async (name, email, phone, password, regnumber, captcha) => {
         
     $.ajax('/',{
         type: 'POST',
@@ -9,13 +9,15 @@ const signupAjax = async (name, email, phone, password, regnumber) => {
             email: email,
             phone: phone,
             password: password,
-            regnumber: regnumber
+            regnumber: regnumber,
+            captcha: captcha
         },
         success: (data, status) =>{
-            if (data.status =='success')
-            {
-                showAlert('success', 'Signup Successfull.');
-            }
+            console.log(data)
+            // if (data.status =='success')
+            // {
+            //     showAlert('success', 'Signup Successfull.');
+            // }
         },
         error: (err) => {
             console.log('Failed!');
@@ -65,7 +67,8 @@ var onSubmit = () => {
     const password = document.getElementById('password').value;
     const reenteredPassword = document.getElementById('rePassword').value;
     const regnumber = document.getElementById('regnumber').value.toUpperCase();
-    signupAjax(name, email,phone, password,regnumber);
+    const captcha = document.getElementById('g-recaptcha-response').value;
+    signupAjax(name, email,phone, password,regnumber, captcha);
 }
 
 const checkEmail = (input) => {
@@ -136,6 +139,7 @@ const checkRegNumber = (reg) => {
         }
 
         onSubmit();
+        
         // grecaptcha.execute();
     
     });
