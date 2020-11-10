@@ -1,19 +1,12 @@
 const mongoose = require('mongoose');
 
-const users = mongoose.model('users', mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
+const clients = mongoose.model('clients', mongoose.Schema({
   email: {
     type: String,
     required: true,
     unique: true,
     trim: true,
   },
-
   password: {
     type: String,
     required: true,
@@ -26,10 +19,18 @@ const users = mongoose.model('users', mongoose.Schema({
     minlength: 10,
     maxlength: 10,
   },
-  verified: {
+  regnumber: {
+    type: String,
+    required: false,
+    maxlength: 9,
+  },
+  vitian: {
     type: Boolean,
     default: false,
   },
+  clientName: {
+    type: String
+  }
 }));
 
-module.exports = users;
+module.exports = clients;

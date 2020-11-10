@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const { stringify } = require('querystring');
 const path = require('path');
-const User = require('./models/User');
+const clients = require('./models/User');
 const { hashPassword } = require('./static/js/hash');
 
 const app = express();
@@ -47,45 +47,69 @@ app.post('/', async (req, res) => {
     return res.send({ status:'error', msg: 'Failed captcha verification' });
   }
   
+  var vit=false;
+  if(req.body.regnumber !== ''){
+    vit = true;
+  }
+
+  if (typeof(req.body.email) !== 'string' && typeof(req.body.password) !== 'string' && typeof(req.body.name)!== 'string') {
+    return res.send({ status: 'error', msg:'Please enter string inputs.' });
+  }
+
+  if (req.body.email.length > 150){
+    return res.send({ status: 'error', msg:'Email too long. Seems suspicious' });
+  }
   
+  if (req.body.password.length > 150) {
+    return res.send({ status: 'error', msg:'Password too long. Seems suspicious' });
+  }
+  
+  if (req.body.name.length > 150) {
+    return res.send({ status: 'error', msg:'Name too long. Seems suspicious' });
+  }
 
-  // if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
-  //   res.send({ status: 'success' });
-  //   return 1;
-  // }
+  const users = await clients.findOne({ $or: [{ email: req.body.email }, { phone: req.body.phone }, {regnumber: req.body.regnumber}] });
+  if (users) {
+    // console.log(users);
+    if (users.email === req.body.email) {
+        res.send({ status: 'error', msg:`Email ${req.body.email} already exists!` });
+        return;
+      }
 
-  // if (req.body.email.length > 150 || req.body.password.length > 150
-  //   || req.body.name.length > 150) {
-  //   res.send({ status: 'success' });
-  //   return 2;
-  // }
+    if (users.phone === req.body.phone) {
+      res.send({ status: 'error', msg:`Phone number ${req.body.phone} already exists!` });
+      return;
+    }
+    
+    if (users.regnumber === req.body.regnumber && req.body.regnumber !== '') {
+      res.send({ status: 'error', msg:`Registration number ${req.body.regnumber} already exists!` });
+      return;
+      }
+    }
 
+  const newUser = new clients({
+    email: req.body.email,
+    clientName: req.body.name,
+    phone: req.body.phone,
+    password: await hashPassword(req.body.password),
+    timestamp: Date.now(),
+    regnumber: req.body.regnumber,
+    vitian: vit
+  });
 
-  // const newUser = new User({
-  //   email: req.body.email,
-  //   name: req.body.name,
-  //   phone: req.body.phone,
-  //   password: await hashPassword(req.body.password),
-  //   timestamp: Date.now(),
-  //   verified: false,
-  // });
+  var student;
+  try {
+    student = await newUser.save();
+    console.log(student);
+  } catch (e) {
+    console.log(`Error occured: ${e}`);
+    return res.send({status:'error',msg:'Server error!'});
+  }
 
-  // let student;
-  // try {
-  //   student = await newUser.save();
-  //   console.log('3');
-  // } catch (e) {
-  //   console.log(`Error occured: ${e}`);
-  //   return 0;
-  // }
-
-  res.send({ status: 'success' });
+  res.send({ status: 'success', msg:'You have registered successfully.' });
   res.status(200);
   res.end();
 });
-
-
-// ____________________________________
 
 
 app.get('/', (req, res) => {

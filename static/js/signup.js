@@ -1,6 +1,6 @@
-
-
 const signupAjax = async (name, email, phone, password, regnumber, captcha) => {
+
+    console.log('Sending request')
         
     $.ajax('/',{
         type: 'POST',
@@ -13,36 +13,12 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha) => {
             captcha: captcha
         },
         success: (data, status) =>{
-            console.log(data)
-            // if (data.status =='success')
-            // {
-            //     showAlert('success', 'Signup Successfull.');
-            // }
+            showAlert(data.status, data.msg);
         },
         error: (err) => {
             console.log('Failed!');
         }
     })
-        
-        
-        //     if (res.data.status === 'captcha-not-done') {
-        //         showAlert('error', 'Captcha not done!!');
-        //         document.querySelector('#submitBtn').disabled = false;
-        //         grecaptcha.reset();
-        //     } else if (res.data.status === 'Failed-captcha-verification') {
-        //         showAlert('error', 'Captcha verification failed!! Try again');
-        //         document.querySelector('#submitBtn').disabled = false;
-        //         grecaptcha.reset();
-        //       if (res.data.status === 'email_exist') {
-        //         showAlert('error', 'Email already exists!');
-        //         document.querySelector('#submitBtn').disabled = false;
-        //     } else if (res.data.status === 'name_exist') {
-        //         showAlert('error', 'Name already taken!');
-        //         document.querySelector('#submitBtn').disabled = false;
-        //     } else if (res.data.status === 'success') {
-        //         showAlert('success', 'Signup Successfull.Verify to continue');
-        //     }
-        // }
 };
 
 
@@ -65,7 +41,6 @@ var onSubmit = () => {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
-    const reenteredPassword = document.getElementById('rePassword').value;
     const regnumber = document.getElementById('regnumber').value.toUpperCase();
     const captcha = document.getElementById('g-recaptcha-response').value;
     signupAjax(name, email,phone, password,regnumber, captcha);
@@ -81,14 +56,16 @@ const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0
 
 const checkRegNumber = (reg) => {
 
+    if (reg === ''){
+        return true;
+    }
+
     const re = /[1-9][0-9][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]/;
     reg = reg.toUpperCase();
     console.log(reg)
     if(re.test(reg)){
         return true;
     }
-
-    showAlert('error','Registration Number not entered properly.')
 
     showAlert('error', 'Registration number not entered properly!');
     return false;
@@ -139,7 +116,5 @@ const checkRegNumber = (reg) => {
         }
 
         onSubmit();
-        
-        // grecaptcha.execute();
     
     });
