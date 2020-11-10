@@ -14,10 +14,6 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha, even
     repassword.value = '';
     const cregnumber = document.getElementById('regnumber');
     cregnumber.value = '';
-    const figma = document.getElementById('figma-check');
-    figma.checked=false;
-    const pygame = document.getElementById('pygame-check');
-    pygame.checked=false;
         
     $.ajax('/',{
         type: 'POST',
