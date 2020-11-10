@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 
 
 app.post('/', async (req, res) => {
-  console.log('1');
   console.log(req.body);
   // if (!req.body.captcha) {
   //   return res.json({ success: false, msg: 'Please select captcha' });
@@ -46,14 +45,24 @@ app.post('/', async (req, res) => {
   // }
 
   if (!(typeof req.body.email === 'string' && typeof req.body.password === 'string')) {
-    res.send({ status: 'success' });
-    return 1;
+    // res.send({ status: 'failed' });
+    return res.render('signup');
   }
 
   if (req.body.email.length > 150 || req.body.password.length > 150
     || req.body.name.length > 150) {
-    res.send({ status: 'success' });
-    return 2;
+    // res.send({ status: 'failed' });
+    return res.render('signup');
+  }
+
+  const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (!re.test(String(res.body.email).toLowerCase())) {
+    return res.render('signup');
+  }
+
+  if (req.body.confirmedPassword !== req.body.password || req.body.password.length < 7) {
+    // res.send({ status: 'failed' });
+    return res.render('signup');
   }
 
   console.log('2');
@@ -69,14 +78,14 @@ app.post('/', async (req, res) => {
 
   let student;
   try {
-    student = await newUser.save();
+    student = newUser.save();
     console.log('3');
   } catch (e) {
     console.log(`Error occured: ${e}`);
-    return 0;
+    return res.render('signup');
   }
 
-  res.send({ status: 'success' });
+  return res.render('success');
 });
 
 

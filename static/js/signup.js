@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+console.log('hello')
+
 const signupAjax = async (name, email, phone, password, reenteredPassword) => {
         const res = await axios({
             method: 'POST',
