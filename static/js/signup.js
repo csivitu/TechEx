@@ -14,7 +14,25 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha, even
             events: events
         },
         success: (data, status) =>{
+            const name = document.getElementById('name');
+            name.value='';
+            const email = document.getElementById('email');
+            email.value = '';
+            const phone = document.getElementById('phone');
+            phone.value = '';
+            const password = document.getElementById('password');
+            password.value = '';
+            const repassword = document.getElementById('rePassword');
+            repassword.value = '';
+            const regnumber = document.getElementById('regnumber');
+            regnumber.value = '';
+            const figma = document.getElementById('figma-check');
+            figma.checked=false;
+            const pygame = document.getElementById('pygame-check');
+            pygame.checked=false;
             showAlert(data.status, data.msg);
+            const btn = document.getElementById('submitBtn');
+            btn.style.display="block";
         },
         error: (err) => {
             console.log('Failed!');
@@ -37,6 +55,8 @@ function showAlert(type, message) {
 
 var onSubmit = () => {
     console.log('Submitting!')
+    const btn = document.getElementById('submitBtn');
+    btn.style.display="none";
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
@@ -52,7 +72,7 @@ var onSubmit = () => {
         events.push(figma.value)
     }
     const captcha = document.getElementById('g-recaptcha-response').value;
-    signupAjax(name, email,phone, password,regnumber, captcha, events);
+    // signupAjax(name, email,phone, password,regnumber, captcha, events);
 }
 
 const checkEmail = (input) => {
