@@ -30,6 +30,10 @@ const clients = mongoose.model('clients', mongoose.Schema({
   },
   clientName: {
     type: String
+  },
+  events:{
+    type: Array,
+    required: true
   }
 }));
 

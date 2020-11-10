@@ -22,7 +22,6 @@ app.use(bodyParser.json());
 
 app.post('/', async (req, res) => {
 
-
   if (req.body.captcha===undefined || req.body.captcha === '' || req.body.captcha===null) {
     return res.send({ status:'error', msg: 'Captcha not verified.' });
   }
@@ -94,7 +93,8 @@ app.post('/', async (req, res) => {
     password: await hashPassword(req.body.password),
     timestamp: Date.now(),
     regnumber: req.body.regnumber,
-    vitian: vit
+    vitian: vit,
+    events: req.body.events
   });
 
   var student;

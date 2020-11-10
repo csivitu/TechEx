@@ -1,4 +1,4 @@
-const signupAjax = async (name, email, phone, password, regnumber, captcha) => {
+const signupAjax = async (name, email, phone, password, regnumber, captcha, events) => {
 
     console.log('Sending request')
         
@@ -10,7 +10,8 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha) => {
             phone: phone,
             password: password,
             regnumber: regnumber,
-            captcha: captcha
+            captcha: captcha,
+            events: events
         },
         success: (data, status) =>{
             showAlert(data.status, data.msg);
@@ -42,8 +43,17 @@ var onSubmit = () => {
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
     const regnumber = document.getElementById('regnumber').value.toUpperCase();
+    var events = [];
+    const figma = document.getElementById('figma-check');
+    const pygame = document.getElementById('pygame-check');
+    if (pygame.checked){
+        events.push(pygame.value);
+    }
+    if (figma.checked) {
+        events.push(figma.value)
+    }
     const captcha = document.getElementById('g-recaptcha-response').value;
-    signupAjax(name, email,phone, password,regnumber, captcha);
+    signupAjax(name, email,phone, password,regnumber, captcha, events);
 }
 
 const checkEmail = (input) => {
@@ -92,6 +102,17 @@ const checkRegNumber = (reg) => {
             return false;
         } else return true;
     };
+
+    const checkBoxes = () => {
+        const figma = document.getElementById('figma-check');
+        const pygame = document.getElementById('pygame-check');
+
+        if (pygame.checked || figma.checked){
+            return true;
+        }
+
+        showAlert('error','You need to select atleast one workshop.')
+    }
     
     
     
@@ -108,6 +129,10 @@ const checkRegNumber = (reg) => {
 
 
         if (! (checkFieldMatch(document.getElementById('rePassword'), document.getElementById('password')))){
+            return;
+        }
+
+        if (!checkBoxes()){
             return;
         }
 
