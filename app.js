@@ -55,10 +55,10 @@ app.post('/', async (req, res) => {
     return res.render('signup');
   }
 
-  const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!re.test(String(res.body.email).toLowerCase())) {
-    return res.render('signup');
-  }
+  // const re = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  // if (!re.test(String(res.body.email).toLowerCase())) {
+  //   return res.render('signup');
+  // }
 
   if (req.body.confirmedPassword !== req.body.password || req.body.password.length < 7) {
     // res.send({ status: 'failed' });
