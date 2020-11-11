@@ -1,6 +1,19 @@
 const signupAjax = async (name, email, phone, password, regnumber, captcha, events) => {
 
-    console.log('Sending request')
+    console.log('hey there!')
+
+    const cname = document.getElementById('name');
+    cname.value='';
+    const cemail = document.getElementById('email');
+    cemail.value = '';
+    const cphone = document.getElementById('phone');
+    cphone.value = '';
+    const cpassword = document.getElementById('password');
+    cpassword.value = '';
+    const repassword = document.getElementById('rePassword');
+    repassword.value = '';
+    const cregnumber = document.getElementById('regnumber');
+    cregnumber.value = '';
         
     $.ajax('/',{
         type: 'POST',
