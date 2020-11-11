@@ -79,7 +79,7 @@ nav{
 .bg{
     background-color: #fb8449;
     width: 100%;
-    height: 75%;
+    height: 80%;
     top: 15%;
     margin-left: auto;
     margin-right: auto;
@@ -118,7 +118,7 @@ nav{
 }
 .dates{
     color: white; 
-    margin-top: 9%;
+    margin-top: 3%;
 }
 .sectionContainer#s2{
     position: absolute;
@@ -235,11 +235,13 @@ input[type=email], input[type=text],input[type=password],input[type=tel]{
  padding: 10px;
 }
 #pygamechkdiv{
+    background-color: rgba(0,0,0,1);
     margin-bottom: 20px;
     border-radius: 10px;
     width: 85%;
 }
 #figmachkdiv{
+    background-color: rgba(0,0,0,1);
     margin-top: 20px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -256,6 +258,9 @@ input[type=submit]{
     color: #fb8449;
     max-width: 100px;
     background-color: white;
+}
+input[type=submit]:hover{
+    cursor: pointer;
 }
 ::placeholder { 
     color: white;
