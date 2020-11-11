@@ -237,11 +237,13 @@ input[type=email], input[type=text],input[type=password],input[type=tel]{
 #pygamechkdiv{
     margin-bottom: 20px;
     border-radius: 10px;
+    width: 85%;
 }
 #figmachkdiv{
     margin-top: 20px;
-    border-radius: 10px; 
+    border-radius: 10px;
     margin-bottom: 10px;
+    width: 85%;
 }
 input{
     padding: 10px;
@@ -360,19 +362,18 @@ form{
     justify-content: space-around;
     height: max-content;
   }
-  #intro{
+#intro{
     width: 70%;
 }
-  @media screen and (min-width: 1440px){
+@media screen and (min-width: 1440px){
     html{
         font-size: 30px;
     }
     #s2{
         left: 5%;
     }
-    
 }
-  @media screen and (max-width: 1090px){
+@media screen and (max-width: 1090px){
     #designcontent{
         max-width: 100%;
     }
@@ -463,6 +464,15 @@ form{
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: auto;
     }
+    #figmachkdiv{
+        width: auto;
+    }
+    #pygamechkdiv{
+        width: auto;
+    }
+    input[type=email], input[type=text],input[type=password],input[type=tel]{
+        width: auto;
+    }
 }
 
 @media screen and (max-width: 540px){
@@ -495,7 +505,7 @@ form{
         height: 70%;
     }
     html{
-        font-size: 18px;
+        font-size: 24px;
     }
     #s2>div{
         width: 100%;

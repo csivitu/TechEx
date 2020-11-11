@@ -32,6 +32,7 @@ function showAlert(type, message) {
             document.getElementById('spitErrors').style.color='#721C24'; 
             document.getElementById('spitErrors').style.backgroundColor="#FFF3CD"
             document.getElementById('spitErrors').innerHTML= message;
+            gsap.fromTo('input[type=button]',)
     }
 }
 
