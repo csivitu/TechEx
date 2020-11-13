@@ -254,9 +254,11 @@ input{
 button[type=submit]{
     font-weight: bolder;
     border:none;
+    border-radius: 5px;
     text-decoration: none;
     color: #fb8449;
-    max-width: 100px;
+    max-width: fit-content;
+    margin: 10px 0;
     background-color: white;
 }
 input[type=submit]:hover{
