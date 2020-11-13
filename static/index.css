@@ -535,7 +535,7 @@ form{
         height: 70%;
     }
     html{
-        font-size: 24px;
+        font-size: 18px;
     }
     #s2>div{
         width: 100%;
@@ -584,4 +584,9 @@ form{
         width: 100%;
     }
     
+}
+@media only screen and (max-width: 325px){
+    html{
+        font-size: 12px;
+    }
 }
