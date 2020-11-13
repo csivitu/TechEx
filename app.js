@@ -111,6 +111,34 @@ app.post('/', async (req, res) => {
   res.end();
 });
 
+app.get('/regcount', async (req, res) => {
+
+  console.log(req.query.token)
+  var token = req.query.token;
+  if (!(token===process.env.REG_SECRET)){
+    res.redirect('/')
+    return;
+  }
+
+  var pygame=37;
+  var figma=46;
+
+  const users = await clients.find({});
+
+  for (var i = 0; i<users.length;i++) {
+    if(users[i].events.includes("Intro to Pygame")){
+      pygame+=1;
+    }
+
+    if(users[i].events.includes("UI design with Figma")){
+      figma+=1;
+    }
+  }
+  res.send(`Figma regs: ${figma}\nPygame regs: ${pygame}`)
+  res.end()
+
+})
+
 
 app.get('/', (req, res) => {
   res.render('signup');
