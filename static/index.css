@@ -258,6 +258,7 @@ button[type=submit]{
     text-decoration: none;
     color: #fb8449;
     max-width: fit-content;
+    max-width: -moz-fit-content;
     margin: 10px 0;
     background-color: white;
 }
