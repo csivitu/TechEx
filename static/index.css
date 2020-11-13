@@ -251,7 +251,7 @@ input{
     padding: 10px;
     margin: 10px;
 }
-input[type=submit]{
+button[type=submit]{
     font-weight: bolder;
     border:none;
     text-decoration: none;
@@ -370,6 +370,17 @@ form{
 #intro{
     width: 70%;
 }
+
+#pygamechkdiv {
+    z-index: 2999;
+}
+
+#figmachkdiv {
+    z-index: 2999;
+}
+
+
+
 @media screen and (min-width: 1440px){
     html{
         font-size: 30px;
@@ -470,10 +481,10 @@ form{
         width: auto;
     }
     #figmachkdiv{
-        width: auto;
+        width: 100%;
     }
     #pygamechkdiv{
-        width: auto;
+        width: 100%;
     }
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: auto;
