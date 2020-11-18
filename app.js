@@ -134,7 +134,7 @@ app.get('/regcount', async (req, res) => {
       figma+=1;
     }
   }
-  res.send(`Figma regs: ${figma}\nPygame regs: ${pygame}`)
+  res.send(`Figma regs: ${figma}<br>Pygame regs: ${pygame}`)
   res.end()
 
 })

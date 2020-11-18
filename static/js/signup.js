@@ -57,14 +57,14 @@ var onSubmit = () => {
     const password = document.getElementById('password').value;
     const regnumber = document.getElementById('regnumber').value.toUpperCase();
     var events = [];
-    const figma = document.getElementById('figma-check');
+    // const figma = document.getElementById('figma-check');
     const pygame = document.getElementById('pygame-check');
     if (pygame.checked){
         events.push(pygame.value);
     }
-    if (figma.checked) {
-        events.push(figma.value)
-    }
+    // if (figma.checked) {
+    //     events.push(figma.value)
+    // }
     const captcha = document.getElementById('g-recaptcha-response').value;
     signupAjax(name, email,phone, password,regnumber, captcha, events);
 }
@@ -117,9 +117,9 @@ const checkRegNumber = (reg) => {
     };
 
     const checkBoxes = () => {
-        const figma = document.getElementById('figma-check');
+        // const figma = document.getElementById('figma-check');
         const pygame = document.getElementById('pygame-check');
-        if(pygame.checked || figma.checked)
+        if(pygame.checked)
             return true;
         showAlert('error','You need to select atleast one workshop.')
     }
