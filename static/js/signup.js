@@ -1,4 +1,4 @@
-const signupAjax = async (name, email, phone, password, regnumber, captcha, events) => {
+const signupAjax = async (name, email, phone, password, regnumber, captcha, code, events) => {
 
     console.log('hey there!')
 
@@ -14,6 +14,8 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha, even
     repassword.value = '';
     const cregnumber = document.getElementById('regnumber');
     cregnumber.value = '';
+    const refer = document.getElementById('code');
+    refer.value = '';
         
     $.ajax('/',{
         type: 'POST',
@@ -24,6 +26,7 @@ const signupAjax = async (name, email, phone, password, regnumber, captcha, even
             password: password,
             regnumber: regnumber,
             captcha: captcha,
+            code: code,
             events: events
         },
         success: (data, status) =>{
@@ -56,6 +59,7 @@ var onSubmit = () => {
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
     const regnumber = document.getElementById('regnumber').value.toUpperCase();
+    const code = document.getElementById('code').value.toUpperCase();
     var events = [];
     // const figma = document.getElementById('figma-check');
     const pygame = document.getElementById('pygame-check');
@@ -66,7 +70,7 @@ var onSubmit = () => {
     //     events.push(figma.value)
     // }
     const captcha = document.getElementById('g-recaptcha-response').value;
-    signupAjax(name, email,phone, password,regnumber, captcha, events);
+    signupAjax(name, email,phone, password,regnumber, captcha, code, events);
 }
 
 const checkEmail = (input) => {

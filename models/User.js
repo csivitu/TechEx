@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const clients = mongoose.model('clients', mongoose.Schema({
+const clientsChatBot = mongoose.model('clientsChatBot', mongoose.Schema({
   email: {
     type: String,
     required: true,
@@ -34,7 +34,15 @@ const clients = mongoose.model('clients', mongoose.Schema({
   events:{
     type: Array,
     required: true
-  }
+  },
+  code:{
+    type:String,
+    required: true
+  },
+  points:{
+    type: Number,
+    default: 0
+  },
 }));
 
-module.exports = clients;
+module.exports = clientsChatBot;

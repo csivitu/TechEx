@@ -8,6 +8,7 @@ const { stringify } = require('querystring');
 const path = require('path');
 const clients = require('./models/User');
 const { hashPassword } = require('./static/js/hash');
+const rcg = require('referral-code-generator');
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -86,6 +87,31 @@ app.post('/', async (req, res) => {
       }
     }
 
+    if(req.body.code !== ""){
+
+      const user = await clients.findOne({code:req.body.code})
+
+      if(!user){
+        res.send({ status: 'error', msg:`Referral code ${req.body.code} is invalid. Please enter valid code or leave blank.`});
+        return;
+      }
+
+      user.points += 1;
+      user.save();
+    }
+
+    let refcode="";
+
+    while(true){
+
+      refcode =await rcg.alpha('uppercase',6);
+      const samecode = await clients.findOne({code: refcode});
+  
+      if(!samecode){
+        break;
+      }
+    }
+
   const newUser = new clients({
     email: req.body.email,
     clientName: req.body.name,
@@ -94,6 +120,7 @@ app.post('/', async (req, res) => {
     timestamp: Date.now(),
     regnumber: req.body.regnumber,
     vitian: vit,
+    code: refcode,
     events: req.body.events
   });
 
@@ -106,7 +133,7 @@ app.post('/', async (req, res) => {
     return res.send({status:'error',msg:'Server error!'});
   }
 
-  res.send({ status: 'success', msg:'You have registered successfully.' });
+  res.send({ status: 'success', msg:`You have registered successfully.You referral code is: ${refcode}` });
   res.status(200);
   res.end();
 });
@@ -120,21 +147,9 @@ app.get('/regcount', async (req, res) => {
     return;
   }
 
-  var pygame=37;
-  var figma=46;
-
   const users = await clients.find({});
 
-  for (var i = 0; i<users.length;i++) {
-    if(users[i].events.includes("Intro to Pygame")){
-      pygame+=1;
-    }
-
-    if(users[i].events.includes("UI design with Figma")){
-      figma+=1;
-    }
-  }
-  res.send(`Figma regs: ${figma}<br>Pygame regs: ${pygame}`)
+  res.send(`Chatbot regs: ${users.length}`)
   res.end()
 
 })
