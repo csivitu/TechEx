@@ -1,15 +1,14 @@
 const findSec = (index) =>{
     switch(index){
         case 0 : return(".sec1");break;
-        case 2 : return(".sec3");break;
-        case 3 : return(".sec4");break;
+        case 2 : return(".sec2");break;
         case 4 : return(".sec5");break;
-        default: break;
+        default: return undefined; break;
     }
 }
 new fullpage('#fullpage',{
     css3:true,
-    anchors:['homepage','whatistechex','uiwithfigma','pygame','signup'],
+    anchors:['homepage','whatistechex','chatbots','signup'],
     scrollOverflow: true,
     scrollingSpeed:1000,
     menu: '#menu',
@@ -29,7 +28,7 @@ new fullpage('#fullpage',{
         }
         else if(direction==="up" && sec!==undefined){
             if(!(destination.isFirst))  
-                back.fromTo(sec,{rotation: 1},{rotation: -3,duration: 1.2,delay: 1});
+                back.fromTo(sec,{rotation: 3},{rotation: -3,duration: 1.2,delay: 1});
         }
         if(destination.isLast){
             document.getElementById("navContainer").style.backgroundColor="white";
@@ -71,14 +70,6 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 // Design for checkbox selector
-document.getElementById('figma-check').addEventListener('change',(e)=>{
-    const parentDiv = document.getElementById('figmachkdiv')
-    if(e.target.checked)
-        parentDiv.style.backgroundColor="rgba(0,0,0,1)";
-    else
-        parentDiv.style.backgroundColor="rgba(0,0,0,0)";
-
-});
 document.getElementById('pygame-check').addEventListener('change',(e)=>{
    const parentDiv = document.getElementById('pygamechkdiv');
    if(e.target.checked)

@@ -106,7 +106,7 @@ nav{
     width: 90%;
     padding-top: 3%;
     max-height: 500px;
-    font-size: 1rem;
+    font-size: 0.93rem;
     left: 10px;
     right: 20px;
     position: absolute;
@@ -205,20 +205,13 @@ a:hover{
     text-decoration-color: none;
     text-decoration: none;
 }
-#phoneImg{
-position: absolute;
-top:10vh;
-left :50vw;
-height: 90%;
-width: auto;
-}
 
-#controllerImg{ 
+#chatbotImg{ 
 /* padding-left: 200px; */
-top:10vh;
+top: 25vh;
 position: absolute;
 left :10vw;
-height: 90%;
+height: 55%;
 width: auto;
 }
 
@@ -238,13 +231,6 @@ input[type=email], input[type=text],input[type=password],input[type=tel]{
     background-color: rgba(0,0,0,1);
     margin-bottom: 20px;
     border-radius: 10px;
-    width: 85%;
-}
-#figmachkdiv{
-    background-color: rgba(0,0,0,1);
-    margin-top: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
     width: 85%;
 }
 input{
@@ -389,10 +375,6 @@ form{
     z-index: 2999;
 }
 
-#figmachkdiv {
-    z-index: 2999;
-}
-
 
 
 @media screen and (min-width: 1440px){
@@ -408,10 +390,15 @@ form{
         max-width: 100%;
     }
     html{
-        font-size: 20px;
+        font-size: 30px;
     }
     #logosvg{
         width: 30%;
+    }
+    #chatbotImg{
+        left: 5vh;
+        top: 13vh;
+        width: 38%;
     }
     #logo{
         width: 100%;
@@ -451,7 +438,11 @@ form{
     }
 }
 @media screen and (max-width: 768px){
-    
+    #chatbotImg{
+        width: 40%;
+        top: 15vh;
+        left: 4vh;
+    }
     #s2{
         left:0;
     }
@@ -494,9 +485,6 @@ form{
     input[type=email], input[type=text],input[type=password],input[type=tel]{
         width: auto;
     }
-    #figmachkdiv{
-        width: 100%;
-    }
     #pygamechkdiv{
         width: 100%;
     }
@@ -506,10 +494,7 @@ form{
 }
 
 @media screen and (max-width: 540px){
-    #controllerImg{
-        display: none;
-    }
-    #phoneImg{
+    #chatbotImg{
         display: none;
     }
     .dates{
@@ -550,7 +535,7 @@ form{
         height: 87%;
     }
    
-    #controllerImg{
+    #chatbotImg{
         left: -30vw;
     }
     .sectionContainer{
@@ -571,7 +556,7 @@ form{
 }
 @media only screen and (max-width: 377px){
     html{
-        font-size: 14px;
+        font-size: 15px;
     }
     .sectioncontainer{
         margin-top: 100px;
@@ -587,6 +572,6 @@ form{
 }
 @media only screen and (max-width: 325px){
     html{
-        font-size: 12px;
+        font-size: 13px;
     }
 }
