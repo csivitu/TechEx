@@ -1,5 +1,5 @@
-[![csivit][csivitu-shield]][csivitu-url]
-[![Issues][issues-shield]][issues-url]
+[![csivit][csivitu-shield]](https://github.com/csivitu)
+[![Issues][issues-shield]](https://github.com/csivitu/TechEx-Backend/issues)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -8,10 +8,10 @@
     <img src="https://csivit.com/images/favicon.png" alt="Logo" width="80">
   </a>
 
-  <h3 align="center">YOUR_TITLE</h3>
+  <h3 align="center">TechEx Backend</h3>
 
   <p align="center">
-    YOUR_SHORT_DESCRIPTION
+    Backend for the TechEx website
     <br />
     <a href="https://github.com/csivitu/repo"><strong>Explore the docs »</strong></a>
     <br />
@@ -45,18 +45,14 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo`, `twitter_handle`, `email`
+TechEx, CSIVIT's annual workshop series was conducted this year but amidst the corona virus pandemic, it had to be held online. This project is the backend for the website used for TechEx registrations. We provide functionality for signing up as well as referral codes were implemented. 
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [Node](https://nodejs.org/en/)
+* [ExpressJs](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
 
 
 
@@ -67,7 +63,6 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
 ```sh
 npm install npm@latest -g
@@ -77,7 +72,7 @@ npm install npm@latest -g
  
 1. Clone the repo
 ```sh
-git clone https://github.com/github_username/repo.git
+git clone https://github.com/csivitu/TechEx-Backend
 ```
 2. Install NPM packages
 ```sh
@@ -89,16 +84,19 @@ npm install
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+<p align="center">
+  <img src="./images/image1.png" width="600">
+  <br />
+  <br />
+  <img src="./images/image2.png" width="600">
+</p>
 
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/csivitu/TechEx-Backend/issues) for a list of proposed features (and known issues).
 
 
 
@@ -128,4 +126,4 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 [csivitu-shield]: https://img.shields.io/badge/csivitu-csivitu-blue
 [csivitu-url]: https://csivit.com
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=flat-square
-[issues-url]: https://github.com/csivitu/repo/issues
+[issues-url]: (https://github.com/csivitu/TechEx-Backend/issues)
